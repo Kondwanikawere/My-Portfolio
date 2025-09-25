@@ -127,9 +127,13 @@ defineProps({
             leave-active-class="transition ease-out duration-200" enter-from-class="opacity-0" 
             leave-to-class="opacity-0">
       <div class="fixed flex-col h-screen pl-[2%] items-center justify-bottom hidden md:flex z-98" v-if="socialMediaTrue">
-        <div class="flex flex-col  items-center space-y-[5vh] fixed bottom-0 md:w-[8%] lg:w-[6%] left-0"> 
-          <font-awesome-icon :icon="['fab', 'whatsapp']" :class="[activeSection === 'myWork' ? 'text-white' : 'text-socialMediaGreen']" class="text-[25px] transition duration-300 hover:drop-shadow-[0_0_12px_#00c1a1] cursor-pointer" />
-          <font-awesome-icon icon="fa-brands fa-square-facebook" :class="[activeSection === 'myWork' ? 'text-white' : 'text-socialMediaGreen']" class="text-[22.5px] transition duration-300 hover:drop-shadow-[0_0_12px_#00c1a1] cursor-pointer"/>
+        <div class="flex flex-col  items-center space-y-[5vh] fixed bottom-0 md:w-[8%] lg:w-[6%] left-0">
+          <a href="https://wa.me/265997967304" target="_blank" rel="noopener noreferrer">
+            <font-awesome-icon :icon="['fab', 'whatsapp']" :class="[activeSection === 'myWork' ? 'text-white' : 'text-socialMediaGreen']" class="text-[25px] transition duration-300 hover:drop-shadow-[0_0_12px_#00c1a1] cursor-pointer" />
+          </a>
+            <a href="https://www.facebook.com/share/1VUjXCi9rt/?mibextid=qi2Omg" target="_blank" rel="noopener noreferrer">
+            <font-awesome-icon icon="fa-brands fa-square-facebook" :class="[activeSection === 'myWork' ? 'text-white' : 'text-socialMediaGreen']" class="text-[22.5px] transition duration-300 hover:drop-shadow-[0_0_12px_#00c1a1] cursor-pointer"/>
+          </a>
           <div class="w-[0.1px] bg-white h-[25vh]">
           </div>
         </div>
@@ -141,9 +145,11 @@ defineProps({
             leave-to-class="opacity-0">
       <div class="fixed flex-col h-screen top-0 items-center right-0 space-y-[4vh] hidden md:flex md:w-[8%] lg:w-[6%] right-0 z-98" v-if="socialMediaTrue">
         <div class="flex items-end h-screen justify-center">
-          <p class="text-[2vh] text-richBrown font-poppins [writing-mode:vertical-rl] [letter-spacing:0.05em] transition duration-300 hover:[text-shadow:0_0_12px_#FFB183] hover:text-richBrown cursor-pointer">
-            KondwaniKawere1@gmail.com
-          </p>
+          <a href="mailto:kondwanikawere1@gmail.com">
+            <p class="text-[2vh] text-richBrown font-poppins [writing-mode:vertical-rl] [letter-spacing:0.05em] transition duration-300 hover:[text-shadow:0_0_12px_#FFB183] hover:text-richBrown cursor-pointer">
+              KondwaniKawere1@gmail.com
+            </p>
+          </a>
         </div>
         <div class="w-[0.1px] bg-white relative h-[7vh] bottom-0">
         </div>

@@ -187,7 +187,7 @@
                                         A music streaming platform that lets users listen to and download their favorite songs, albums, and playlists. It features collections from various artists, supports secure online payments for albums or tracks, and offers seamless music discovery.
                                     </p>
                                     <div class="flex justify-center w-full">
-                                        <button @click="showWorkDescription(1)" class="absolute bottom-[6vh] lg:bottom-[4vh] cursor-pointer">
+                                        <button @click="showWorkDescription(1)" class="absolute bottom-[7vh] lg:bottom-[4vh] cursor-pointer">
                                             <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-[#bbb]"/>
                                         </button>
                                     </div>
@@ -275,7 +275,7 @@
                                         An app that streamlines hotel operations with integrated online room booking, smart inventory tracking, and efficient staff management for seamless hospitality service. Designed to save time and boost productivity.                                
                                     </p>
                                     <div class="flex justify-center w-full">
-                                        <button @click="showWorkDescription(2)" class="absolute bottom-[6vh] lg:bottom-[4vh] cursor-pointer">
+                                        <button @click="showWorkDescription(2)" class="absolute bottom-[7vh] lg:bottom-[4vh] cursor-pointer">
                                             <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-[#bbb]"/>
                                         </button>
                                     </div>
@@ -363,7 +363,7 @@
                                         A platform that connects well-wishers to patients in need, enabling secure donations through mobile wallets as well as banks, transparent fund tracking, and timely medical support to improve healthcare outcomes.
                                     </p>
                                     <div class="flex justify-center w-full">
-                                        <button @click="showWorkDescription(3)" class="absolute bottom-[6vh] lg:bottom-[4vh] cursor-pointer">
+                                        <button @click="showWorkDescription(3)" class="absolute bottom-[7vh] lg:bottom-[4vh] cursor-pointer">
                                             <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-[#bbb]"/>
                                         </button>
                                     </div>

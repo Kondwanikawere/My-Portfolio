@@ -93,15 +93,21 @@
                     <img src="../assets/icons/upChevron.png" class="w-[25px] h-[25px]">
                 </button>
                 <div class="flex w-full justify-center space-x-[30px] mb-[35px]">
-                    <div class="w-[50px] h-[50px] bg-cardBg flex justify-center items-center cursor-pointer">
-                        <font-awesome-icon :icon="['fab', 'whatsapp']" class="text-white text-[25px] transition duration-300 hover:drop-shadow-[0_0_12px_#00c1a1]" />
-                    </div>
-                    <div class="w-[50px] h-[50px] bg-cardBg flex justify-center items-center cursor-pointer">
-                        <font-awesome-icon icon="fa-brands fa-square-facebook" class="text-white text-[24px] transition duration-300 hover:drop-shadow-[0_0_12px_#00c1a1]"/>
-                    </div>
-                    <div class="w-[50px] h-[50px] bg-cardBg flex justify-center items-center cursor-pointer">
-                        <img src="../assets/icons/gmail.svg" alt="" class="w-[25px] h-[25px] transition duration-300 hover:drop-shadow-[0_0_12px_#00c1a1]">
-                    </div>
+                    <a href="https://wa.me/265997967304" target="_blank" rel="noopener noreferrer">
+                        <div class="w-[50px] h-[50px] bg-cardBg flex justify-center items-center cursor-pointer">
+                            <font-awesome-icon :icon="['fab', 'whatsapp']" class="text-white text-[25px] transition duration-300 hover:drop-shadow-[0_0_12px_#00c1a1]" />
+                        </div>
+                    </a>
+                    <a href="https://www.facebook.com/share/1VUjXCi9rt/?mibextid=qi2Omg" target="_blank" rel="noopener noreferrer">
+                        <div class="w-[50px] h-[50px] bg-cardBg flex justify-center items-center cursor-pointer">
+                            <font-awesome-icon icon="fa-brands fa-square-facebook" class="text-white text-[24px] transition duration-300 hover:drop-shadow-[0_0_12px_#00c1a1]"/>
+                        </div>
+                    </a>
+                    <a href="mailto:kondwanikawere1@gmail.com">
+                        <div class="w-[50px] h-[50px] bg-cardBg flex justify-center items-center cursor-pointer">
+                            <img src="../assets/icons/gmail.svg" alt="" class="w-[25px] h-[25px] transition duration-300 hover:drop-shadow-[0_0_12px_#00c1a1]">
+                        </div>
+                    </a>
                 </div>
                 <p class="text-[13px] text-[#8f9aa7] font-light">Kondwani Kawere <span class="text-[#e31b6d]">©2025</span></p>
             </div>
