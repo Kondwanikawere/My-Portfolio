@@ -49,10 +49,12 @@
     const el = document.getElementById(id)
     const mySelfHeight = document.getElementById('mySelf')
     const myWorkHeight = document.getElementById('myWork')
+    const myContactHeight = document.getElementById('myContact')
     if (el) {
       if(id !== activeSection.value ){
         mySelfHeight.style.height = '1935px';
         myWorkHeight.style.height = '1200px';
+        myContactHeight.style.height = '1140.57px';
         //el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         gsap.to(window, {
           duration: 1, // seconds
@@ -63,7 +65,7 @@
             mySelfHeight.style.height = 'auto';
             myWorkHeight.style.height = 'auto';
           },
-      });
+        });
       }
       localStorage.setItem('lastSection', id);
       setTimeout(() => {
@@ -77,8 +79,24 @@
     if (lastSection) {
       setTimeout(() => {
         const el = document.getElementById(lastSection);
+        const mySelfHeight = document.getElementById('mySelf')
+        const myWorkHeight = document.getElementById('myWork')
+        const myContactHeight = document.getElementById('myContact')
         if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          mySelfHeight.style.height = '1935px';
+          myWorkHeight.style.height = '1200px';
+          myContactHeight.style.height = '1140.57px';
+          
+          gsap.to(window, {
+            duration: 1, // seconds
+            scrollTo: { y: el, offsetY: 0 }, // or { y: el, offsetY: 100 } for navbar offset
+            ease: "power2.out", // optional easing
+            onComplete: () => {
+              // Reset height back to auto after scroll finishes
+              mySelfHeight.style.height = 'auto';
+              myWorkHeight.style.height = 'auto';
+            },
+          });
         }
       }, 100); // Delay ensures DOM is loaded
     }

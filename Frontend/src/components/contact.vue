@@ -2,6 +2,8 @@
     import { ref, onMounted, onUnmounted, shallowRef} from 'vue';
     import axiosClient from '../axios';
     const processing = ref(false)
+    const buttonText = ref('SUBMIT')
+    const successfullySent = ref(false)
     const form = shallowRef({
         name : '',
         email : '',
@@ -13,6 +15,15 @@
         email : '',
         message : '',
     })
+    function clearError(field) {
+        // Only clear if there is an error
+        if (errorMessage.value[field] && errorMessage.value[field].length > 0) {
+            errorMessage.value = {
+                ...errorMessage.value,
+                [field]: [],
+            }
+        }
+    }
     function submit()  {
         processing.value = true
         axiosClient.get('/sanctum/csrf-cookie').then(response => {
@@ -20,11 +31,16 @@
             .then( response => {
                 console.log("Message Sent successfully")
                 form.value = { name: '', email: '', message: '' }
+                buttonText.value = 'Received'      // Change text
+                successfullySent.value = true
+                setTimeout(() => {
+                    buttonText.value = 'SUBMIT'      // Back to default after 3s
+                    successfullySent.value = false
+                }, 2000)
             })
             .catch(error => {
                errorMessage.value = error.response.data.errors
                console.log(errorMessage.value)
-               form.value = { name: '', email: '', message: '' }
             }).finally(() => {
                 processing.value = false
             })
@@ -82,7 +98,7 @@
 </script>
 
 <template>
-    <div class="relative h-[1140.57px] w-full pt-[80px] font-poppins font-semibold" id="myContact" ref="contacts">
+    <div class="relative w-full pt-[80px] font-poppins font-semibold" id="myContact" ref="contacts">
         <div class="relative border-t-1 border-[#393E46] w-full bg-cardBg pt-[170px] pb-[100px]">
             <div class="absolute w-full h-[80px] flex items-center justify-center pt-0 top-0"> 
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full bg-cardBg"  viewBox="0 0 100 102" preserveAspectRatio="none"><path fill="#222831" d="M0 0 L50 100 L100 0 Z"/></svg>
@@ -100,13 +116,31 @@
                         class="w-full flex justify-center">
                     <form @submit.prevent ="submit" class="flex flex-col items-center w-full lg:w-[730px] xl:w-[800px] md:w-[630px]">
                         <div class="flex flex-col w-[92%] space-y-[10px] mb-[15px]">
-                            <input required name="name" v-model="form.name" type="text" placeholder="Name" class="bg-contactInputBg rounded-[1px] text-[16px] pl-[15px] pr-[15px] font-light focus:outline-none focus:ring-0">
-                            <input required name="email" v-model="form.email" type="text" placeholder="Enter email" class="bg-contactInputBg rounded-[1px] text-[16px] pl-[15px] pr-[15px] font-light focus:outline-none focus:ring-0">
-                            <textarea required name="message" v-model="form.message" type="email" placeholder="Your Message" class="bg-contactInputBg h-[150px] rounded-[1px] text-[16px] pl-[15px] pr-[15px] pt-[10px] pb-[10px] font-light focus:outline-none focus:ring-0 leading-normal"></textarea>  
+                            <input required name="name" v-model="form.name" type="text" placeholder="Name" @input="clearError('name')" class="bg-contactInputBg rounded-[1px] text-[16px] pl-[15px] pr-[15px] font-light focus:outline-none focus:ring-0">
+                            <Motion :initial="{ opacity: 0, scale: 0.2 }" :enter="{opacity: 1, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}" class="w-full flex pl-[2%] pr-[2%]">
+                                <p v-if="errorMessage.name && errorMessage.name[0]" class="text-red-500 text-[12px] mt-1 leading-[1.5]">
+                                    {{ errorMessage.name[0] }}
+                                </p>
+                            </Motion>
+                            <input required name="email" v-model="form.email" type="text" placeholder="Enter email" @input="clearError('email')" class="bg-contactInputBg rounded-[1px] text-[16px] pl-[15px] pr-[15px] font-light focus:outline-none focus:ring-0">
+                            <Motion :initial="{ opacity: 0, scale: 0.2 }" :enter="{opacity: 1, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}" class="w-full flex pl-[2%] pr-[2%]">
+                                <p v-if="errorMessage.email && errorMessage.email[0]" class="text-red-500 text-[12px] mt-1 leading-[1.5]">
+                                    {{ errorMessage.email[0] }}
+                                </p>
+                            </motion>
+                            <textarea required name="message" v-model="form.message" type="email" placeholder="Your Message" @input="clearError('message')" class="bg-contactInputBg h-[150px] rounded-[1px] text-[16px] pl-[15px] pr-[15px] pt-[10px] pb-[10px] font-light focus:outline-none focus:ring-0 leading-normal"></textarea>  
+                            <div>
+                            <Motion :initial="{ opacity: 0, scale: 0.2 }" :enter="{opacity: 1, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}" class="w-full flex pl-[2%] pr-[2%]">
+                                <p v-if="errorMessage.message && errorMessage.message[0]" class="text-red-500 text-[12px] mt-1 leading-[1.5]">
+                                    {{ errorMessage.message[0] }}
+                                </p>
+                            </motion>
+                            </div>
                         </div>
                         <Motion :initial="{ opacity: 1 }" :enter="{opacity: 1}" class="w-[95%] flex justify-end pr-[1.5%]">
-                            <button :disabled="processing" class="cursor-pointer border-white border-2 w-[120px] text-[16px] h-[45px] font-normal flex justify-center items-center">
-                                SUBMIT
+                            <button :disabled="processing" :class="['cursor-pointer border-white border-2 w-[120px] text-[16px] h-[45px] font-normal flex justify-center items-center', successfullySent ? 'bg-green-500 border-green-500' : 'border-white text-white']">
+                                <span>{{ buttonText }}</span>
+                                <span v-if="successfullySent" class="text-[18px]">😊</span>
                             </button>
                         </Motion>
                     </form>
@@ -118,7 +152,7 @@
             enter-active-class="transition duration-500 ease-out"
             enter-from-class="opacity-0 translate-y-10 scale-50"
             enter-to-class="opacity-100 translate-y-0 scale-100">
-            <div v-if="footerVisible" class="flex w-full flex-col items-center">
+            <div v-if="footerVisible" class="flex w-full flex-col items-center h-[210px]">
                 <button @click="$emit('scroll-to', 'hero')" class="cursor-pointer h-[50px] w-[45px] -translate-y-[25px] bg-[#e31b6d] flex justify-center items-center mb-[20px]">
                     <img src="../assets/icons/upChevron.png" class="w-[25px] h-[25px]">
                 </button>
