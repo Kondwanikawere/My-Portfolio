@@ -138,9 +138,9 @@
                             </div>
                         </div>
                         <Motion :initial="{ opacity: 1 }" :enter="{opacity: 1}" class="w-[95%] flex justify-end pr-[1.5%]">
-                            <button :disabled="processing" :class="['cursor-pointer border-white border-2 w-[120px] text-[16px] h-[45px] font-normal flex justify-center items-center', successfullySent ? 'bg-green-500 border-green-500' : 'border-white text-white']">
+                            <button :disabled="processing" :class="['hover:bg-[#00ADB5] active:bg-[#00ADB5] hover:border-[#00ADB5] active:border-[#00ADB5] cursor-pointer border-white border-2 w-[120px] text-[16px] h-[45px] font-normal flex justify-center items-center gap-1 text-white', successfullySent ? 'bg-[#00ADB5] border-[#00ADB5] border-none pl-[7px]' : 'border-white']">
                                 <span>{{ buttonText }}</span>
-                                <span v-if="successfullySent" class="text-[18px]">😊</span>
+                                <span v-if="successfullySent">😊</span>
                             </button>
                         </Motion>
                     </form>
@@ -152,7 +152,7 @@
             enter-active-class="transition duration-500 ease-out"
             enter-from-class="opacity-0 translate-y-10 scale-50"
             enter-to-class="opacity-100 translate-y-0 scale-100">
-            <div v-if="footerVisible" class="flex w-full flex-col items-center h-[210px]">
+            <div v-if="footerVisible" class="flex w-full flex-col items-center">
                 <button @click="$emit('scroll-to', 'hero')" class="cursor-pointer h-[50px] w-[45px] -translate-y-[25px] bg-[#e31b6d] flex justify-center items-center mb-[20px]">
                     <img src="../assets/icons/upChevron.png" class="w-[25px] h-[25px]">
                 </button>
