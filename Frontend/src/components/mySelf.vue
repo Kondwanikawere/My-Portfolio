@@ -156,13 +156,13 @@
         <Motion v-if="description5" :initial="{ opacity: 0, x: -200, scale: 0.2 }" :enter="{opacity: 1, x: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}" 
                 class="w-full flex justify-center text-[#00ADB5] md:w-[35%] md:hidden">
           <div class="w-[70%] h-[250px] sm:w-[250px] rounded-[4px] overflow-visible border-[3px] border-white lg:h-[300px] lg:w-[300px]">
-            <img src="../assets/images/profile.png" alt="Profile" class="w-[100%] h-[100%] rounded-[4px] -translate-x-[7%] -translate-y-[7%]">
+            <img src="../assets/images/profile.jpg" alt="Profile" class="w-[100%] h-[100%] rounded-[4px] -translate-x-[7%] -translate-y-[7%]">
           </div>
         </Motion>
         <Motion v-if="descriptionVisible" :initial="{ opacity: 0, x: -200, scale: 0.2 }" :enter="{opacity: 1, x: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}" 
                 class="w-full flex justify-center text-[#00ADB5] md:w-[35%] hidden md:flex">
           <div class="w-[70%] h-[250px] sm:w-[250px] rounded-[4px] overflow-visible border-[3px] border-white lg:h-[300px] lg:w-[300px]">
-            <img src="../assets/images/profile.png" alt="Profile" class="w-[100%] h-[100%] rounded-[4px] -translate-x-[7%] -translate-y-[7%]">
+            <img src="../assets/images/profile.jpg" alt="Profile" class="w-[100%] h-[100%] rounded-[4px] -translate-x-[7%] -translate-y-[7%]">
           </div>
         </Motion>
       </div>
