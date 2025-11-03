@@ -5,6 +5,10 @@
   import mySelf from '../components/mySelf.vue'
   import myWork from '@/components/myWork.vue'
   import contact from '@/components/contact.vue'
+  import { gsap } from "gsap";
+  import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+  gsap.registerPlugin(ScrollToPlugin);
 
   const sections = [
     { id: 'hero'},
@@ -43,9 +47,23 @@
 
   const scrollToSection = (id) => {
     const el = document.getElementById(id)
+    const mySelfHeight = document.getElementById('mySelf')
+    const myWorkHeight = document.getElementById('myWork')
     if (el) {
       if(id !== activeSection.value ){
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        mySelfHeight.style.height = '1935px';
+        myWorkHeight.style.height = '1200px';
+        //el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        gsap.to(window, {
+          duration: 1, // seconds
+          scrollTo: { y: el, offsetY: 0 }, // or { y: el, offsetY: 100 } for navbar offset
+          ease: "power2.out", // optional easing
+          onComplete: () => {
+            // Reset height back to auto after scroll finishes
+            mySelfHeight.style.height = 'auto';
+            myWorkHeight.style.height = 'auto';
+          },
+      });
       }
       localStorage.setItem('lastSection', id);
       setTimeout(() => {
@@ -140,7 +158,7 @@ onBeforeUnmount(() => {
   <div :class="['fixed top-0 left-0 h-1 z-101 transition-[width] duration-300 ease-in-out', scrollProgress < 50 ? 'bg-navBar1' : scrollProgress < 90 ? 'bg-navBar1' : scrollProgress < 95 ? 'bg-navBar1' : 'bg-navBar1']" :style="{ width: scrollProgress + '%' }"></div>
   <sideBar :active-section="activeSection" @scroll-to="scrollToSection"/>
   <hero :activeSection="activeSection" @scroll-to="scrollToSection"/>
-  <mySelf ref="portfolio"/>
+  <mySelf ref="portfolio" />
   <myWork ref="work"/>
   <contact ref="contacts" @scroll-to="scrollToSection" />
 </template>

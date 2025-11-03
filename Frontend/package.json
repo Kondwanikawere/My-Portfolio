@@ -18,6 +18,8 @@
     "@tailwindcss/vite": "^4.1.8",
     "@vueuse/core": "^13.3.0",
     "@vueuse/motion": "^3.0.3",
+    "axios": "^1.12.2",
+    "gsap": "^3.13.0",
     "lottie-web": "^5.13.0",
     "pinia": "^3.0.1",
     "tailwindcss": "^4.1.8",

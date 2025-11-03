@@ -166,7 +166,7 @@
                             <div class="w-full fixed top-0 z-102 h-screen bg-black opacity-50" @click="showWorkDescription(1)"></div>
                             <div class="h-screen w-full bg-portfolio fixed top-0 z-103 overflow-hidden lg:w-[700px] lg:h-[95vh] flex flex-col items-center">
                                 <button @click="showWorkDescription(1)" :class="['absolute z-103 top-[1vh] right-[3%] cursor-pointer', expand ? 'block' : 'hidden']">
-                                    <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-[#bbb]"/>
+                                    <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-[#EEEEEE]"/>
                                 </button>
                                 <div :class="['relative', expand ? 'h-[100%] w-[80%] sm:w-full' : 'h-[60vh] w-full']">
                                     <img alt="MusicStream" src="../assets/images/myWorkBg.png" :class="['h-[100%] w-[100%] left-0 absolute z-101', expand ? 'hidden lg:block' : '']">
@@ -188,7 +188,7 @@
                                     </p>
                                     <div class="flex justify-center w-full">
                                         <button @click="showWorkDescription(1)" class="absolute bottom-[7vh] lg:bottom-[4vh] cursor-pointer">
-                                            <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-[#bbb]"/>
+                                            <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-[#EEEEEE]"/>
                                         </button>
                                     </div>
                                 </div>
@@ -286,7 +286,7 @@
                 </Teleport>
                 
             </div>
-
+            
             <div class="w-full" id="card3">
                 <div v-if="card3Visible" class="w-full mb-[25px] lg:hidden">
                     <Motion :initial="{ opacity: 0, x: -200, scale: 0.2 }" :enter="{opacity: 1, x: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}"

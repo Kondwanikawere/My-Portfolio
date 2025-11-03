@@ -1,5 +1,35 @@
 <script setup>
-    import { ref, onMounted, onUnmounted} from 'vue';
+    import { ref, onMounted, onUnmounted, shallowRef} from 'vue';
+    import axiosClient from '../axios';
+    const processing = ref(false)
+    const form = shallowRef({
+        name : '',
+        email : '',
+        message : '',
+    })
+    
+    const errorMessage = shallowRef({
+        name : '',
+        email : '',
+        message : '',
+    })
+    function submit()  {
+        processing.value = true
+        axiosClient.get('/sanctum/csrf-cookie').then(response => {
+            axiosClient.post('/api/sendMessage', form.value)
+            .then( response => {
+                console.log("Message Sent successfully")
+                form.value = { name: '', email: '', message: '' }
+            })
+            .catch(error => {
+               errorMessage.value = error.response.data.errors
+               console.log(errorMessage.value)
+               form.value = { name: '', email: '', message: '' }
+            }).finally(() => {
+                processing.value = false
+            })
+        });
+    }
 
     const contacts = ref(null)
     const contactVisible = ref(null)
@@ -66,19 +96,19 @@
                     <div class="h-[4px] w-[30%] md:w-[110px] bg-white mb-[40px] md:mb-[30px]"></div>
                     <div class="text-[14px] md:text-[14px] font-[600px] text-cyanBlue mb-[40px]">Have a question or want to work together?</div>
                 </Motion>
-                <Motion v-if="formVisible" :initial="{ opacity: 0, y: 200, scale: 0.2 }" :enter="{opacity: 1, y: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}"
+                <Motion  v-if="formVisible" :initial="{ opacity: 0, y: 200, scale: 0.2 }" :enter="{opacity: 1, y: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}"
                         class="w-full flex justify-center">
-                    <form action="" class="flex flex-col items-center w-full lg:w-[730px] xl:w-[800px] md:w-[630px]">
+                    <form @submit.prevent ="submit" class="flex flex-col items-center w-full lg:w-[730px] xl:w-[800px] md:w-[630px]">
                         <div class="flex flex-col w-[92%] space-y-[10px] mb-[15px]">
-                            <input type="text" placeholder="Name" class="bg-contactInputBg rounded-[1px] text-[16px] pl-[15px] pr-[15px] font-light focus:outline-none focus:ring-0">
-                            <input type="text" placeholder="Enter email" class="bg-contactInputBg rounded-[1px] text-[16px] pl-[15px] pr-[15px] font-light focus:outline-none focus:ring-0">
-                            <textarea name="" id="" placeholder="Your Message" class="bg-contactInputBg h-[150px] rounded-[1px] text-[16px] pl-[15px] pr-[15px] pt-[10px] pb-[10px] font-light focus:outline-none focus:ring-0 leading-normal"></textarea>
+                            <input required name="name" v-model="form.name" type="text" placeholder="Name" class="bg-contactInputBg rounded-[1px] text-[16px] pl-[15px] pr-[15px] font-light focus:outline-none focus:ring-0">
+                            <input required name="email" v-model="form.email" type="text" placeholder="Enter email" class="bg-contactInputBg rounded-[1px] text-[16px] pl-[15px] pr-[15px] font-light focus:outline-none focus:ring-0">
+                            <textarea required name="message" v-model="form.message" type="email" placeholder="Your Message" class="bg-contactInputBg h-[150px] rounded-[1px] text-[16px] pl-[15px] pr-[15px] pt-[10px] pb-[10px] font-light focus:outline-none focus:ring-0 leading-normal"></textarea>  
                         </div>
-                        <div class="w-[95%] flex justify-end pr-[1.5%]">
-                            <button class="cursor-pointer border-white border-2 w-[120px] text-[16px] h-[45px] font-normal flex justify-center items-center">
+                        <Motion :initial="{ opacity: 1 }" :enter="{opacity: 1}" class="w-[95%] flex justify-end pr-[1.5%]">
+                            <button :disabled="processing" class="cursor-pointer border-white border-2 w-[120px] text-[16px] h-[45px] font-normal flex justify-center items-center">
                                 SUBMIT
                             </button>
-                        </div>
+                        </Motion>
                     </form>
                 </Motion>
             </div>

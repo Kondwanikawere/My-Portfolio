@@ -61,7 +61,7 @@
 </script>
 
 <template>
-  <div :class="['w-full relative flex justify-center z-95 font-robotoMono h-[1580px] md:h-[1280px] pl-[4%] pr-[4%] mb-[70px] sm:pl-[10%] sm:pr-[10%] pt-[80px] text-[14px] sm:text-[16px] md:pl-[8%] md:pr-[8%] lg:pl-[0px] lg:pr-[0px]']" id="mySelf" ref="portfolio">
+  <div :class="['w-full relative flex justify-center z-95 font-robotoMono  pl-[4%] pr-[4%] mb-[50px] sm:pl-[10%] sm:pr-[10%] pt-[80px] text-[14px] sm:text-[16px] md:pl-[8%] md:pr-[8%] lg:pl-[0px] lg:pr-[0px]']" id="mySelf" ref="portfolio">
     <div class="sm:w-[512px] md:w-[671px] lg:w-[900px]">
       <Motion v-if="isVisible" :initial="{ opacity: 0, x: -200, scale: 0.2 }" :enter="{opacity: 1, x: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}"
                 class="w-full grid grid-cols-[45%_51%] gap-[15px] items-center text-white font-bold mb-[30px] text-[6.5vw] sm:text-[4.7vw] md:text-[4.6vw] lg:text-[5.1vw] xl:text-[4.2vw]">
@@ -74,27 +74,27 @@
           <Motion v-if="descriptionVisible" :initial="{ opacity: 0, x: 200, scale: 0.2 }" :enter="{opacity: 1, x: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}" 
                   class="w-full flex items-center space-x-[4%] font-poppins text-[#00ADB5] leading-6 mb-[15px]">
             <div>
-              Hi! I'm a Full Stack Web Developer who crafts secure, lightning-fast, and SEO-optimized websites and applications that help businesses grow and stand out online. I leverage modern frameworks, scalable infrastructure, and streamlined workflows to deliver solutions that are both high-performing and future-ready. My process blends technical precision with creative design, ensuring clean, user-friendly interfaces that work seamlessly across all devices — all while following industry-leading cybersecurity practices.
+              Hi! I'm a Full Stack Web Developer and Cybersecurity Expert who builds secure, lightning-fast, and SEO-optimized websites and applications that help businesses grow and stand out online. I leverage modern frameworks, scalable infrastructure, and efficient workflows to deliver solutions that are both high-performing and future-ready. My process combines technical precision with creative design, ensuring clean, user-friendly interfaces that work seamlessly across all devices — all while implementing advanced, industry-leading cybersecurity measures.
             </div>
           </Motion>
 
           <Motion v-if="description1" :initial="{ opacity: 0, x: 200, scale: 0.2 }" :enter="{opacity: 1, x: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}" 
                   class="w-full flex items-center space-x-[4%] font-poppins text-[#00ADB5] leading-6 mb-[15px]">
             <div>
-              I specialize in building complete, end-to-end digital solutions: from architecting databases and integrating payment systems to automating deployments and connecting complex third-party services. With deep cybersecurity expertise, I proactively find and patch vulnerabilities, conduct penetration testing, and implement robust security measures to safeguard your data and protect your business from evolving threats.
+              I specialize in delivering complete, end-to-end digital solutions: from architecting databases and integrating payment systems to automating deployments and connecting complex third-party services. Alongside full stack development, I bring deep cybersecurity expertise in networking, web application penetration testing, open-source intelligence (OSINT), and vulnerability analysis. As a professional bug bounty hunter, I actively discover and responsibly disclose security flaws, helping organizations harden their infrastructure and safeguard data from emerging threats.
             </div>
           </Motion>
           <Motion v-if="description2" :initial="{ opacity: 0, x: 200, scale: 0.2 }" :enter="{opacity: 1, x: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}" 
                   class="w-full flex items-center space-x-[4%] font-poppins text-[#00ADB5] leading-6 mb-[15px]">
             <div>
-              I create Custom Web Applications from concept to launch, develop SEO-Optimized Websites with clean architecture and blazing load speeds, handle Frontend Development with modern JavaScript frameworks, engineer Backend Systems with scalable architectures, deliver RESTful API Development & Integrations, and design intuitive UI/UX in Figma — from wireframes to full mockups. Every project is secure, responsive, and mobile-first by default.
+              I create Custom Web Applications from concept to launch, develop SEO-Optimized Websites with clean architecture and blazing load speeds, handle Frontend Development with modern JavaScript frameworks, engineer Backend Systems with scalable architectures, deliver RESTful API Development & Integrations, and design intuitive UI/UX in Figma — from wireframes to full mockups. Every project I build is secure, responsive, and mobile-first by default, with layered protection embedded into every stage of development.
             </div>
           </Motion>
 
           <Motion v-if="description3" :initial="{ opacity: 0, x: 200, scale: 0.2 }" :enter="{opacity: 1, x: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}" 
                   class="w-full flex items-center space-x-[4%] font-poppins text-[#00ADB5] leading-6 mb-[15px]">
             <div>
-              Clients choose me for my clean, maintainable code, design sensibility, clear communication, and commitment to delivering results on time and within budget. Whether you need a complete solution or a specialist to handle a critical part of your stack, I'm ready to help you build, scale, and secure your next big idea.
+              Clients choose me for my clean, maintainable code, design sensibility, clear communication, and dedication to delivering results on time and within budget. Whether you need a complete end-to-end solution or an expert to strengthen a specific part of your stack, I’m ready to help you build, scale, and secure your next big idea — combining cutting-edge development with strong, proactive cybersecurity.
             </div>
           </Motion>
 
@@ -156,13 +156,13 @@
         <Motion v-if="description5" :initial="{ opacity: 0, x: -200, scale: 0.2 }" :enter="{opacity: 1, x: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}" 
                 class="w-full flex justify-center text-[#00ADB5] md:w-[35%] md:hidden">
           <div class="w-[70%] h-[250px] sm:w-[250px] rounded-[4px] overflow-visible border-[3px] border-white lg:h-[300px] lg:w-[300px]">
-            <img src="../assets/images/profile.jpg" alt="Profile" class="w-[100%] h-[100%] rounded-[4px] -translate-x-[7%] -translate-y-[7%]">
+            <img src="../assets/images/profile.png" alt="Profile" class="w-[100%] h-[100%] rounded-[4px] -translate-x-[7%] -translate-y-[7%]">
           </div>
         </Motion>
         <Motion v-if="descriptionVisible" :initial="{ opacity: 0, x: -200, scale: 0.2 }" :enter="{opacity: 1, x: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}" 
                 class="w-full flex justify-center text-[#00ADB5] md:w-[35%] hidden md:flex">
           <div class="w-[70%] h-[250px] sm:w-[250px] rounded-[4px] overflow-visible border-[3px] border-white lg:h-[300px] lg:w-[300px]">
-            <img src="../assets/images/profile.jpg" alt="Profile" class="w-[100%] h-[100%] rounded-[4px] -translate-x-[7%] -translate-y-[7%]">
+            <img src="../assets/images/profile.png" alt="Profile" class="w-[100%] h-[100%] rounded-[4px] -translate-x-[7%] -translate-y-[7%]">
           </div>
         </Motion>
       </div>
