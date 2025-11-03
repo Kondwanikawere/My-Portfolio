@@ -104,7 +104,7 @@ defineProps({
                   leave-active-class="transition ease-out duration-2000" enter-from-class="opacity-0" 
                   leave-to-class="opacity-0">
       <div class="fixed ml-[3%] sm:ml-[1.2%] h-[40px] w-[40px] sm:h-[55px] sm:w-[55px] lg:h-[55px] lg:w-[55px] rounded-full mt-[20px] z-100 "  v-if="socialMediaTrue">
-        <img src="../assets/images/profile.jpg" alt="Pic" class="w-[100%] h-[100%] object-cover rounded-full">
+        <img src="../assets/images/profile.jpg" alt="Pic" class="w-full h-full object-fill rounded-full">
       </div>
     </Transition>
 
