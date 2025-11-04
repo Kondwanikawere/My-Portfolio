@@ -7,12 +7,12 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 //import { solid } from '@fortawesome/free-solid-svg-icons'
 //import { regular } from '@fortawesome/free-regular-svg-icons'
-import { faWhatsapp, faSquareFacebook } from '@fortawesome/free-brands-svg-icons'
+import { faWhatsapp, faSquareFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faCaretRight, faChevronLeft, faChevronRight, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { MotionPlugin } from '@vueuse/motion'
 
 
-library.add(faWhatsapp, faSquareFacebook, faCaretRight, faChevronLeft, faChevronRight, faXmark)
+library.add(faWhatsapp, faSquareFacebook, faCaretRight, faChevronLeft, faChevronRight, faXmark, faLinkedin)
 
 const app = createApp(App)
 app.use(MotionPlugin)

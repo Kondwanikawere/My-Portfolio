@@ -172,6 +172,11 @@
                             <img src="../assets/icons/gmail.svg" alt="" class="w-[25px] h-[25px] transition duration-300 hover:drop-shadow-[0_0_12px_#00c1a1]">
                         </div>
                     </a>
+                    <a href="https://www.linkedin.com/in/kondwani-kawere-86a65729b" target="_blank" rel="noopener noreferrer">
+                        <div class="w-[50px] h-[50px] bg-cardBg flex justify-center items-center cursor-pointer">
+                            <font-awesome-icon :icon="['fab', 'linkedin']" class="text-white text-[25px] transition duration-300 hover:drop-shadow-[0_0_12px_#00c1a1]" />
+                        </div>
+                    </a>
                 </div>
                 <p class="text-[13px] text-[#8f9aa7] font-light">Kondwani Kawere <span class="text-[#e31b6d]">©2025</span></p>
             </div>

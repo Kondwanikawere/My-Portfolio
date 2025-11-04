@@ -134,6 +134,9 @@ defineProps({
             <a href="https://www.facebook.com/share/1VUjXCi9rt/?mibextid=qi2Omg" target="_blank" rel="noopener noreferrer">
             <font-awesome-icon icon="fa-brands fa-square-facebook" :class="[activeSection === 'myWork' ? 'text-white' : 'text-socialMediaGreen']" class="text-[22.5px] transition duration-300 hover:drop-shadow-[0_0_12px_#00c1a1] cursor-pointer"/>
           </a>
+          <a href="https://www.linkedin.com/in/kondwani-kawere-86a65729b" target="_blank" rel="noopener noreferrer">
+            <font-awesome-icon :icon="['fab', 'linkedin']" :class="[activeSection === 'myWork' ? 'text-white' : 'text-socialMediaGreen']" class="text-[25px] transition duration-300 hover:drop-shadow-[0_0_12px_#00c1a1] cursor-pointer" />
+          </a>
           <div class="w-[0.1px] bg-white h-[25vh]">
           </div>
         </div>
@@ -151,7 +154,7 @@ defineProps({
             </p>
           </a>
         </div>
-        <div class="w-[0.1px] bg-white relative h-[7vh] bottom-0">
+        <div class="w-[0.1px] bg-white relative h-[19vh] bottom-0">
         </div>
       </div>
     </Transition>
