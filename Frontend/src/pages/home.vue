@@ -54,7 +54,6 @@
       if(id !== activeSection.value ){
         mySelfHeight.style.height = '1935px';
         myWorkHeight.style.height = '2187px';
-        myContactHeight.style.height = '1140.57px';
         //el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         gsap.to(window, {
           duration: 1, // seconds
@@ -64,7 +63,6 @@
             // Reset height back to auto after scroll finishes
             mySelfHeight.style.height = 'auto';
             myWorkHeight.style.height = 'auto';
-            myContactHeight.style.height = 'auto';
           },
         });
       }
@@ -86,7 +84,6 @@
         if (el) {
           mySelfHeight.style.height = '1935px';
           myWorkHeight.style.height = '2187px';
-          myContactHeight.style.height = '1140.57px';
           
           gsap.to(window, {
             duration: 1, // seconds

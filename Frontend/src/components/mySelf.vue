@@ -14,6 +14,73 @@
    const handleScroll = () => {
       if (!portfolio.value) return;
 
+      const mySelfHeight = document.getElementById('mySelf')
+
+      const viewportWidth = window.innerWidth;
+      
+      if (description5.value === false) {
+
+      // ─────────────── Extra Small Devices (Phones) ───────────────
+      if (viewportWidth >= 320) {
+          mySelfHeight.style.height = "2150px"; // tiny phones
+
+      } else if (viewportWidth >= 360) {
+          mySelfHeight.style.height = "1984px"; // 320–359px
+
+      } else if (viewportWidth >= 390) {
+          mySelfHeight.style.height = "1891px"; // 360–389px
+
+      } else if (viewportWidth >= 414) {
+          mySelfHeight.style.height = "1845px"; // 390–413px
+
+      } else if (viewportWidth >= 450) {
+          mySelfHeight.style.height = "1753px"; // 414–449px
+
+      } else if (viewportWidth >= 480) {
+          mySelfHeight.style.height = "1708px"; // 450–479px
+
+      // ─────────────── Tailwind sm breakpoint ───────────────
+      } else if (viewportWidth >= 640) {
+          mySelfHeight.style.height = "1682px";
+
+      // ─────────────── Tailwind md breakpoint ───────────────
+      } else if (viewportWidth >= 768) {
+          mySelfHeight.style.height = "1752px";
+
+      // ─────────────── Extra mid tablet breakpoint ───────────────
+      } else if (viewportWidth >= 900) {
+          mySelfHeight.style.height = "1713px";
+
+      // ─────────────── Tailwind lg breakpoint ───────────────
+      } else if (viewportWidth >= 1024) {
+          mySelfHeight.style.height = "1394px";
+
+      // ─────────────── Extra laptop breakpoints ───────────────
+      } else if (viewportWidth >= 1100) {
+          mySelfHeight.style.height = "1394px";
+
+      // ─────────────── Tailwind xl breakpoint ───────────────
+      } else if (viewportWidth >= 1280) {
+          mySelfHeight.style.height = "1394px";
+
+      } else if (viewportWidth >= 1400) {
+          mySelfHeight.style.height = "1394px";
+
+      // ─────────────── Tailwind 2xl breakpoint ───────────────
+      } else if (viewportWidth >= 1536) {
+          mySelfHeight.style.height = "1394px";
+
+      // ─────────────── Ultra wide screens ───────────────
+      } else if (viewportWidth >= 1800) {
+          mySelfHeight.style.height = "1394px";
+
+      } else {
+          mySelfHeight.style.height = "1394px";
+      }
+
+      } else {
+          mySelfHeight.style.height = "auto";
+      }
       const rect = portfolio.value.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
 
@@ -30,17 +97,33 @@
       const progress = Math.min(1, Math.max(0, currentScroll / totalScroll));
 
       // Trigger animations based on progress
-      isVisible.value = progress >= 0.1;
+      isVisible.value = progress >= 0.08;
 
       setTimeout(() => {
-        descriptionVisible.value = progress >= 0.1;
+        descriptionVisible.value = progress >= 0.08;
       }, 100);
-
-      description1.value = progress >= 0.3;
-      description2.value = progress >= 0.4;
-      description3.value = progress >= 0.48;
-      description4.value = progress >= 0.55;
-      description5.value = progress >= 0.6;
+      
+      
+      if(viewportWidth <= 414){
+        description1.value = progress >= 0.22;
+        description2.value = progress >= 0.35;
+        description3.value = progress >= 0.45;
+        description4.value = progress >= 0.55;
+        description5.value = progress >= 0.65;
+      } else if(viewportWidth <= 330){
+        description1.value = progress >= 0.22;
+        description2.value = progress >= 0.35;
+        description3.value = progress >= 0.7;
+        description4.value = progress >= 0.75;
+        description5.value = progress >= 0.8;
+      } else{
+        description1.value = progress >= 0.2;
+        description2.value = progress >= 0.25;
+        description3.value = progress >= 0.35;
+        description4.value = progress >= 0.44;
+        description5.value = progress >= 0.55;
+      }
+      
   };
 
     onMounted(() => {
@@ -69,7 +152,7 @@
         <div class="h-[1px] bg-[#393E46] w-[100%]"></div>
       </Motion>
 
-      <div class="md:flex md:gap-x-[40px]">
+      <div class="md:flex md:gap-x-[40px] text-[14px]">
         <div class="md:w-[65%]">
           <Motion v-if="descriptionVisible" :initial="{ opacity: 0, x: 200, scale: 0.2 }" :enter="{opacity: 1, x: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}" 
                   class="w-full flex items-center space-x-[4%] font-poppins text-[#00ADB5] leading-6 mb-[15px]">
@@ -155,7 +238,7 @@
 
         <Motion v-if="description5" :initial="{ opacity: 0, x: -200, scale: 0.2 }" :enter="{opacity: 1, x: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}" 
                 class="w-full flex justify-center text-[#00ADB5] md:w-[35%] md:hidden">
-          <div class="relative w-[70%] h-[250px] sm:w-[250px] rounded-[4px] overflow-visible border-[3px] border-white lg:h-[300px] lg:w-[300px]">
+          <div class="relative w-[70%] h-[250px] xs:w-[250px] rounded-[4px] overflow-visible border-[3px] border-white lg:h-[300px] lg:w-[300px]">
             <img src="../assets/images/profile.jpg" alt="Profile" class="absolute w-full h-full object-fill rounded-[4px] -translate-x-[7%] -translate-y-[7%]">
             <div class="w-full h-full bg-black absolute -translate-x-[7%] -translate-y-[7%] opacity-25"></div>
           </div>

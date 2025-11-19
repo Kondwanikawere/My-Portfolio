@@ -98,7 +98,7 @@
 </script>
 
 <template>
-    <div class="relative w-full pt-[80px] font-poppins font-semibold" id="myContact" ref="contacts">
+    <div class="relative w-full pt-[80px] font-poppins font-semibold h-[1140.57px]" id="myContact" ref="contacts">
         <div class="relative border-t-1 border-[#393E46] w-full bg-cardBg pt-[170px] pb-[100px]">
             <div class="absolute w-full h-[80px] flex items-center justify-center pt-0 top-0"> 
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full bg-cardBg"  viewBox="0 0 100 102" preserveAspectRatio="none"><path fill="#222831" d="M0 0 L50 100 L100 0 Z"/></svg>

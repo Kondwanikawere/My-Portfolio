@@ -13,9 +13,31 @@
     const card4Visible = ref(false)
     const technologies4Visible = ref(false)
 
+
+
+
     const myWorkScroll = () => {
       if (!work.value) return;
       
+      const myWorkHeight = document.getElementById("myWork");
+      
+        if (myWorkHeight) {
+            const viewportWidth = window.innerWidth;
+
+            if (technologies4Visible.value === false) {
+                if (viewportWidth < 1024) {
+                    // Devices smaller than 1024px (mobile/tablet)
+                    myWorkHeight.style.height = "2187px";
+                } else {
+                    // Devices 1024px and above (laptops/desktops)
+                    myWorkHeight.style.height = "1850px";
+                }
+            } else {
+                // When visible → height becomes automatic
+                myWorkHeight.style.height = "auto";
+            }
+        }
+
       const rect = work.value.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
 
@@ -33,13 +55,13 @@
 
       // Trigger animations based on progress
       card1Visible.value = progress >= 0.05;
-      technologies1Visible.value = progress >= 0.35;
-      card2Visible.value = progress >= 0.4;
-      technologies2Visible.value = progress >= 0.48;
-      card3Visible.value = progress >= 0.5;
-      technologies3Visible.value = progress >= 0.55;
-      card4Visible.value = progress >= 0.6;
-      technologies4Visible.value = progress >= 0.7;
+      technologies1Visible.value = progress >= 0.23;
+      card2Visible.value = progress >= 0.28;
+      technologies2Visible.value = progress >= 0.41;
+      card3Visible.value = progress >= 0.46;
+      technologies3Visible.value = progress >= 0.59;
+      card4Visible.value = progress >= 0.64;
+      technologies4Visible.value = progress >= 0.77;
 
     };
 
@@ -108,7 +130,7 @@
 
 <template>
     <div class="relative w-full flex justify-center pt-[60px] z-95 pl-[4%] pr-[4%] sm:pl-[10%] sm:pr-[10%] lg:pl-[0px] lg:pr-[0px] font-poppins mb-[40px]" id="myWork" ref="work">
-        <div class="w-[370px] xs:w-[480px] sm:w-[512px] md:w-[671px] lg:w-[900px]">
+        <div class="w-[370px] xs:w-[95%] sm:w-[512px] md:w-[671px] lg:w-[900px]">
             <div class="flex justify-end">
                 <Motion v-if="card1Visible" :initial="{ opacity: 0, x: 200, scale: 0.2 }" :enter="{opacity: 1, x: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}"
                         class="h-[1px] bg-[#505761] w-[50%] mb-[30px]">
@@ -116,7 +138,7 @@
             </div>
 
             <Motion v-if="card1Visible" :initial="{ opacity: 0, x: -200, scale: 0.2 }" :enter="{opacity: 1, x: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}"
-                class="w-full flex items-center space-x-[4%] text-[28px] lg:text-[38px]  text-white font-bold mb-[30px]">
+                class="w-full flex items-center space-x-[4%] text-[25px] lg:text-[38px]  text-white font-bold mb-[30px]">
                 <div>Things I've Worked on, Some of Them </div>
             </Motion>
 
@@ -128,9 +150,9 @@
                             <div class="mb-[20px]">
                                 <span @click="[showWorkDescription(1), activeGallery = images1]" class="text-[24px] cursor-pointer ">ShopBridge</span>
                             </div>
-                            <div @click="[showWorkDescription(1), activeGallery = images1]" class="w-[370px] xs:w-[480px] sm:w-[512px] md:w-[646px] h-[340px] sm:h-[440px] lg:w-[547px] lg:h-[308px] rounded-[4px] cursor-pointer overflow-hidden bg-cardBg">
+                            <div @click="[showWorkDescription(1), activeGallery = images1]" class="w-[370px] xs:w-[100%] sm:w-[512px] md:w-[646px] h-[340px] sm:h-[440px] lg:w-[547px] lg:h-[308px] rounded-[4px] cursor-pointer overflow-hidden bg-cardBg">
                                 <div class="w-[100%] h-[83%] rounded-[4px] overflow-hidden">
-                                    <img src="../assets/images/ShopBridge1.png" alt="ShopBridge" class="hover:scale-110">
+                                    <img src="../assets/images/ShopBridge1.png" alt="ShopBridge" class="hover:scale-110 w-full h-full object-cover">
                                 </div>
                                 <div class="text-white text-[14px] flex font-light font-poppins justify-center items-center h-[18%]">
                                 <p class="w-[90%]">A platform that lets you stream and download music with ease.</p>
@@ -190,10 +212,10 @@
                                 <div :class="['font-poppins font-semibold text-white pt-[15px] pr-[10px] pl-[15px]']" >
                                     <p class="text-[26px] text-navBar1">ShopBridge</p>
                                     <p class="text-[10px] font-[300px] text-[#959595] mb-[15px]">AN ECOMMERCE PLATFORM</p>
-                                    <p class="text-[14px] font-[100px] text-[#F5F5F5] leading-5 mb-[20px]">
+                                    <p class="text-[14px] font-[100px] text-[#F5F5F5] leading-5 mb-[50px]">
                                         An eCommerce platform designed to deliver a streamlined shopping experience. Customers can easily explore products, manage their carts, and complete secure checkouts, supported by structured categories, intuitive navigation, and dependable payment options.                                    
                                     </p>
-                                    <div class="flex justify-between w-full pr-[3%]">
+                                    <div class="flex justify-between w-full pr-[5%]">
                                         <a target="_blank" rel="noopener noreferrer" href="https://ecommerce.kondwanikawere.com" class="w-[110px] h-[42px] border-2 border-viewSiteB hover:bg-viewSiteB text-[14px] flex justify-center items-center">VIEW SITE</a>
                                         <button @click="showWorkDescription(1)" class="cursor-pointer">
                                             <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-[#bbb]"/>
@@ -215,7 +237,7 @@
                             <div class="mb-[20px]">
                                 <span @click="[showWorkDescription(2), activeGallery = images2]" class="text-[24px] cursor-pointer">LyricFlow</span>
                             </div>
-                            <div @click="[showWorkDescription(2), activeGallery = images2]" class="w-[370px] xs:w-[480px] sm:w-[512px] md:w-[646px] sm:h-[440px] rounded-[4px] h-[340px] cursor-pointer overflow-hidden bg-cardBg">
+                            <div @click="[showWorkDescription(2), activeGallery = images2]" class="w-[370px] xs:w-[100%] sm:w-[512px] md:w-[646px] sm:h-[440px] rounded-[4px] h-[340px] cursor-pointer overflow-hidden bg-cardBg">
                                 <div class="w-[100%] h-[83%] rounded-[4px] overflow-hidden">
                                     <img src="../assets/images/Sign In.png" alt="LyricFlow" class="hover:scale-110 ">
                                 </div>                                
@@ -304,7 +326,7 @@
                             <div class="mb-[20px]">
                                 <span @click="[showWorkDescription(3), activeGallery = images3]" class="text-[24px] cursor-pointer">InnSight</span>
                             </div>
-                            <div  @click="[showWorkDescription(3), activeGallery = images3]" class="w-[370px] xs:w-[480px] sm:w-[512px] md:w-[646px] sm:h-[440px] rounded-[4px] h-[340px] cursor-pointer overflow-hidden bg-cardBg">
+                            <div  @click="[showWorkDescription(3), activeGallery = images3]" class="w-[370px] xs:w-[100%] sm:w-[512px] md:w-[646px] sm:h-[440px] rounded-[4px] h-[340px] cursor-pointer overflow-hidden bg-cardBg">
                                 <div class="w-[100%] h-[83%] rounded-[4px] overflow-hidden">
                                     <img src="../assets/images/H4.png" alt="InnSight" class="hover:scale-110">
                                 </div>
@@ -390,12 +412,12 @@
                             <div class="mb-[20px]">
                                 <span @click="[showWorkDescription(4), activeGallery = images4]" class="text-[24px] cursor-pointer">CompassionLink</span>
                             </div>
-                            <div @click="[showWorkDescription(4), activeGallery = images4]" class="w-[370px] xs:w-[480px] sm:w-[512px] md:w-[646px] sm:h-[440px] rounded-[4px] h-[340px] cursor-pointer overflow-hidden bg-cardBg">
+                            <div @click="[showWorkDescription(4), activeGallery = images4]" class="w-[370px] xs:w-[100%] sm:w-[512px] md:w-[646px] sm:h-[440px] rounded-[4px] h-[340px] cursor-pointer overflow-hidden bg-cardBg">
                                 <div class="w-[100%] h-[83%] rounded-[4px] overflow-hidden">
                                     <img src="../assets/images/CompassionLink.jpg" alt="CompassionLink" class="hover:scale-110 ">
                                 </div>                                
                                 <div class="text-white text-[14px] flex font-light font-poppins justify-center items-center h-[18%]">
-                                <p class="w-[90%]">A System that enables well-wishers to support patients through donations.</p>
+                                <p class="w-[90%]">A platform where well-wishers can donate to support patients.</p>
                                 </div>
                             </div>
                         </div>
