@@ -199,7 +199,7 @@
                                     <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-[#bbb]"/>
                                 </button>
                                 <div :class="['relative h-[50vh] lg:h-[60vh] w-full overflow-hidden']">
-                                    <img @click="expand = !expand" :src="images1[currentIndex]" alt="ShopBridge" class=" left-0 absolute z-102" >
+                                    <img @click="expand = !expand" :src="images1[currentIndex]" alt="ShopBridge" class=" left-0 w-full h-full object-cover absolute z-102" >
                                 </div>
                                 <div class="absolute w-full h-[50vh] lg:h-[60vh] top-0">
                                     <button @click="prevImage" :class="['absolute left-0 w-[10%] h-[37px] bg-black/20 z-103 flex justify-center items-center cursor-pointer bottom-0']">
@@ -377,7 +377,7 @@
                                     <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-[#bbb]"/>
                                 </button>
                                 <div :class="['relative h-[50vh] lg:h-[60vh] w-full overflow-hidden']">
-                                    <img @click="expand = !expand" :src="images3[currentIndex]" alt="Innsight" class="left-0 absolute z-102" >
+                                    <img @click="expand = !expand" :src="images3[currentIndex]" alt="Innsight" class="left-0 w-full h-full object-cover absolute z-102" >
                                 </div>
                                 <div class="absolute w-full h-[50vh] lg:h-[60vh] top-0">
                                     <button @click="prevImage" :class="['absolute left-0 w-[10%] h-[37px] bg-black/20 z-103 flex justify-center items-center cursor-pointer bottom-0']">
@@ -463,7 +463,7 @@
                                     <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-[#bbb]"/>
                                 </button>
                                 <div :class="['relative h-[50vh] lg:h-[60vh] w-full overflow-hidden']">
-                                    <img @click="expand = !expand" :src="images4[currentIndex]" alt="CompassionLink" class=" left-0 absolute z-102" >
+                                    <img @click="expand = !expand" :src="images4[currentIndex]" alt="CompassionLink" class="left-0 w-full h-full object-cover absolute z-102" >
                                 </div>
                                 <div class="absolute w-full h-[50vh] lg:h-[60vh] top-0">
                                     <button @click="prevImage" :class="['absolute left-0 w-[10%] h-[37px] bg-black/20 z-103 flex justify-center items-center cursor-pointer bottom-0']">
