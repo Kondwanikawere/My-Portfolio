@@ -129,8 +129,8 @@
 </script>
 
 <template>
-    <div class="relative w-full flex justify-center pt-[60px] z-95 pl-[4%] pr-[4%] sm:pl-[10%] sm:pr-[10%] lg:pl-[0px] lg:pr-[0px] font-poppins mb-[40px]" id="myWork" ref="work">
-        <div class="w-[370px] xs:w-[95%] sm:w-[512px] md:w-[671px] lg:w-[900px]">
+    <div class="relative w-full flex justify-center pt-[60px] z-95 pl-[6%] pr-[6%] sm:pl-[10%] sm:pr-[10%] lg:pl-[0px] lg:pr-[0px] font-poppins mb-[40px]" id="myWork" ref="work">
+        <div class=" sm:w-[512px] md:w-[671px] lg:w-[900px]">
             <div class="flex justify-end">
                 <Motion v-if="card1Visible" :initial="{ opacity: 0, x: 200, scale: 0.2 }" :enter="{opacity: 1, x: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}"
                         class="h-[1px] bg-[#505761] w-[50%] mb-[30px]">
@@ -138,7 +138,7 @@
             </div>
 
             <Motion v-if="card1Visible" :initial="{ opacity: 0, x: -200, scale: 0.2 }" :enter="{opacity: 1, x: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}"
-                class="w-full flex items-center space-x-[4%] text-[25px] lg:text-[38px]  text-white font-bold mb-[30px]">
+                class="w-full flex items-center space-x-[4%] text-[20px] sb4:text-[25px] sm:text-[25px] lg:text-[38px] text-white font-bold mb-[30px]">
                 <div>Things I've Worked on, Some of Them </div>
             </Motion>
 
@@ -150,12 +150,12 @@
                             <div class="mb-[20px]">
                                 <span @click="[showWorkDescription(1), activeGallery = images1]" class="text-[24px] cursor-pointer ">ShopBridge</span>
                             </div>
-                            <div @click="[showWorkDescription(1), activeGallery = images1]" class="w-[370px] xs:w-[100%] sm:w-[512px] md:w-[646px] h-[340px] sm:h-[440px] lg:w-[547px] lg:h-[308px] rounded-[4px] cursor-pointer overflow-hidden bg-cardBg">
+                            <div @click="[showWorkDescription(1), activeGallery = images1]" class="xs:h-[282px] xs:w-[100%] sb1:h-[317px] sb2:h-[344px] sb3:h-[365px] sb4:h-[397px] sb5:h-[425px] sb6:h-[476px] sb7:h-[507px] sb8:h-[529px] sm:w-[512px] md:w-[646px] h-[340px] sm:h-[440px] lg:w-[547px] lg:h-[308px] rounded-[4px] cursor-pointer overflow-hidden bg-cardBg">
                                 <div class="w-[100%] h-[83%] rounded-[4px] overflow-hidden">
                                     <img src="../assets/images/ShopBridge1.png" alt="ShopBridge" class="hover:scale-110 w-full h-full object-cover">
                                 </div>
-                                <div class="text-white text-[14px] flex font-light font-poppins justify-center items-center h-[18%]">
-                                <p class="w-[90%]">A platform that lets you stream and download music with ease.</p>
+                                <div class="text-white text-[14px] sb5:text-[16px] flex font-light font-poppins justify-center items-center h-[18%]">
+                                    <p class="w-[90%]">A platform that lets you stream and download music with ease.</p>
                                 </div>
                             </div>
                         </div>
@@ -237,12 +237,12 @@
                             <div class="mb-[20px]">
                                 <span @click="[showWorkDescription(2), activeGallery = images2]" class="text-[24px] cursor-pointer">LyricFlow</span>
                             </div>
-                            <div @click="[showWorkDescription(2), activeGallery = images2]" class="w-[370px] xs:w-[100%] sm:w-[512px] md:w-[646px] sm:h-[440px] rounded-[4px] h-[340px] cursor-pointer overflow-hidden bg-cardBg">
+                            <div @click="[showWorkDescription(2), activeGallery = images2]" class="xs:h-[282px] xs:w-[100%] sb1:h-[317px] sb2:h-[344px] sb3:h-[365px] sb4:h-[397px] sb5:h-[425px] sb6:h-[476px] sb7:h-[507px] sb8:h-[529px] sm:w-[512px] md:w-[646px] sm:h-[440px] rounded-[4px] h-[340px] cursor-pointer overflow-hidden bg-cardBg">
                                 <div class="w-[100%] h-[83%] rounded-[4px] overflow-hidden">
                                     <img src="../assets/images/Sign In.png" alt="LyricFlow" class="hover:scale-110 ">
                                 </div>                                
-                                <div class="text-white text-[14px] flex font-light font-poppins justify-center items-center h-[18%]">
-                                <p class="w-[90%]">A platform that lets you stream and download music with ease.</p>
+                                <div class="text-white text-[14px] sb5:text-[16px] flex font-light font-poppins justify-center items-center h-[18%]">
+                                    <p class="w-[90%]">A platform that lets you stream and download music with ease.</p>
                                 </div>
                             </div>
                         </div>
@@ -326,12 +326,12 @@
                             <div class="mb-[20px]">
                                 <span @click="[showWorkDescription(3), activeGallery = images3]" class="text-[24px] cursor-pointer">InnSight</span>
                             </div>
-                            <div  @click="[showWorkDescription(3), activeGallery = images3]" class="w-[370px] xs:w-[100%] sm:w-[512px] md:w-[646px] sm:h-[440px] rounded-[4px] h-[340px] cursor-pointer overflow-hidden bg-cardBg">
+                            <div  @click="[showWorkDescription(3), activeGallery = images3]" class="xs:h-[282px] xs:w-[100%] sb1:h-[317px] sb2:h-[344px] sb3:h-[365px] sb4:h-[397px] sb5:h-[425px] sb6:h-[476px] sb7:h-[507px] sb8:h-[529px] sm:w-[512px] md:w-[646px] sm:h-[440px] rounded-[4px] h-[340px] cursor-pointer overflow-hidden bg-cardBg">
                                 <div class="w-[100%] h-[83%] rounded-[4px] overflow-hidden">
                                     <img src="../assets/images/H4.png" alt="InnSight" class="hover:scale-110">
                                 </div>
-                                <div class="text-white text-[14px] flex font-light font-poppins justify-center items-center h-[18%]">
-                                <p class="w-[90%]">A System that simplifies Hotel Management Operations</p>
+                                <div class="text-white text-[14px] sb5:text-[16px] flex font-light font-poppins justify-center items-center h-[18%]">
+                                <p class="w-[90%]">A System that simplifies Hotel Management Operations.</p>
                                 </div>
                             </div>
                         </div>
@@ -412,11 +412,11 @@
                             <div class="mb-[20px]">
                                 <span @click="[showWorkDescription(4), activeGallery = images4]" class="text-[24px] cursor-pointer">CompassionLink</span>
                             </div>
-                            <div @click="[showWorkDescription(4), activeGallery = images4]" class="w-[370px] xs:w-[100%] sm:w-[512px] md:w-[646px] sm:h-[440px] rounded-[4px] h-[340px] cursor-pointer overflow-hidden bg-cardBg">
+                            <div @click="[showWorkDescription(4), activeGallery = images4]" class="xs:h-[282px] xs:w-[100%] sb1:h-[317px] sb2:h-[344px] sb3:h-[365px] sb4:h-[397px] sb5:h-[425px] sb6:h-[476px] sb7:h-[507px] sb8:h-[529px] sm:w-[512px] md:w-[646px] sm:h-[440px] rounded-[4px] h-[340px] cursor-pointer overflow-hidden bg-cardBg">
                                 <div class="w-[100%] h-[83%] rounded-[4px] overflow-hidden">
                                     <img src="../assets/images/CompassionLink.jpg" alt="CompassionLink" class="hover:scale-110 ">
                                 </div>                                
-                                <div class="text-white text-[14px] flex font-light font-poppins justify-center items-center h-[18%]">
+                                <div class="text-white text-[14px] sb5:text-[16px] flex font-light font-poppins justify-center items-center h-[18%]">
                                 <p class="w-[90%]">A platform where well-wishers can donate to support patients.</p>
                                 </div>
                             </div>

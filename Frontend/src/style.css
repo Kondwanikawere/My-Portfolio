@@ -23,6 +23,15 @@
   --color-contactInputBg : #1f1f23;
   --color-viewSiteB : #e31b6d;
   --breakpoint-xs: 320px;
+  /* sb1 means small breakpoint 1 */
+  --breakpoint-sb1: 360px;
+  --breakpoint-sb2: 390px;
+  --breakpoint-sb3: 414px;
+  --breakpoint-sb4: 450px;
+  --breakpoint-sb5: 480px;
+  --breakpoint-sb6: 540px;
+  --breakpoint-sb7: 576px;
+  --breakpoint-sb8: 600px;
 }
 
 html {
@@ -153,5 +162,10 @@ body {
 .workDescription-leave-from {
   opacity: 1;
   transform: scale(1);
+}
+
+input:-webkit-autofill {
+    -webkit-text-fill-color: #ffffff !important;
+    transition: background-color 9999s ease-in-out 0s;
 }
 

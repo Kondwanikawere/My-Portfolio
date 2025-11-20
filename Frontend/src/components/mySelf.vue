@@ -144,10 +144,10 @@
 </script>
 
 <template>
-  <div :class="['w-full relative flex justify-center z-95 font-robotoMono  pl-[4%] pr-[4%] mb-[50px] sm:pl-[10%] sm:pr-[10%] pt-[80px] text-[14px] sm:text-[16px] md:pl-[8%] md:pr-[8%] lg:pl-[0px] lg:pr-[0px]']" id="mySelf" ref="portfolio">
+  <div :class="['w-full relative flex justify-center z-95 font-robotoMono  pl-[6%] pr-[6%] mb-[50px] sm:pl-[10%] sm:pr-[10%] pt-[80px] text-[14px] sm:text-[16px] md:pl-[8%] md:pr-[8%] lg:pl-[0px] lg:pr-[0px]']" id="mySelf" ref="portfolio">
     <div class="sm:w-[512px] md:w-[671px] lg:w-[900px]">
       <Motion v-if="isVisible" :initial="{ opacity: 0, x: -200, scale: 0.2 }" :enter="{opacity: 1, x: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}"
-                class="w-full grid grid-cols-[45%_51%] gap-[15px] items-center text-white font-bold mb-[30px] text-[6.5vw] sm:text-[4.7vw] md:text-[4.6vw] lg:text-[5.1vw] xl:text-[4.2vw]">
+                class="w-full grid grid-cols-[45%_51%] gap-[15px] items-center text-white font-bold mb-[30px] text-[6.4vw] sm:text-[4.7vw] md:text-[4.6vw] lg:text-[5.1vw] xl:text-[4.2vw]">
         <div class="font-poppins text-[#EEEEEE]">My portfolio</div>
         <div class="h-[1px] bg-[#393E46] w-[100%]"></div>
       </Motion>

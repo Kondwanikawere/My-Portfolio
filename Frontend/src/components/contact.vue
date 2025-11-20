@@ -116,13 +116,13 @@
                         class="w-full flex justify-center">
                     <form @submit.prevent ="submit" class="flex flex-col items-center w-full lg:w-[730px] xl:w-[800px] md:w-[630px]">
                         <div class="flex flex-col w-[92%] space-y-[10px] mb-[15px]">
-                            <input required name="name" v-model="form.name" type="text" placeholder="Name" @input="clearError('name')" class="bg-contactInputBg rounded-[1px] text-[16px] pl-[15px] pr-[15px] font-light focus:outline-none focus:ring-0">
+                            <input required name="name" v-model="form.name" type="text" placeholder="Name" @input="clearError('name')" class="bg-contactInputBg rounded-[1px] text-[16px] pl-[15px] pr-[15px] font-light focus:outline-none focus:ring-0 autofill:shadow-[inset_0_0_0px_1000px_rgb(31,31,35)]">
                             <Motion :initial="{ opacity: 0, scale: 0.2 }" :enter="{opacity: 1, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}" class="w-full flex pl-[2%] pr-[2%]">
                                 <p v-if="errorMessage.name && errorMessage.name[0]" class="text-red-500 text-[12px] mt-1 leading-[1.5]">
                                     {{ errorMessage.name[0] }}
                                 </p>
                             </Motion>
-                            <input required name="email" v-model="form.email" type="text" placeholder="Enter email" @input="clearError('email')" class="bg-contactInputBg rounded-[1px] text-[16px] pl-[15px] pr-[15px] font-light focus:outline-none focus:ring-0">
+                            <input required name="email" v-model="form.email" type="text" placeholder="Enter email" @input="clearError('email')" class="bg-contactInputBg rounded-[1px] text-[16px] pl-[15px] pr-[15px] font-light focus:outline-none focus:ring-0 autofill:shadow-[inset_0_0_0px_1000px_rgb(31,31,35)]">
                             <Motion :initial="{ opacity: 0, scale: 0.2 }" :enter="{opacity: 1, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}" class="w-full flex pl-[2%] pr-[2%]">
                                 <p v-if="errorMessage.email && errorMessage.email[0]" class="text-red-500 text-[12px] mt-1 leading-[1.5]">
                                     {{ errorMessage.email[0] }}
@@ -130,7 +130,7 @@
                             </motion>
                             <textarea required name="message" v-model="form.message" type="email" placeholder="Your Message" @input="clearError('message')" class="bg-contactInputBg h-[150px] rounded-[1px] text-[16px] pl-[15px] pr-[15px] pt-[10px] pb-[10px] font-light focus:outline-none focus:ring-0 leading-normal"></textarea>  
                             <div>
-                            <Motion :initial="{ opacity: 0, scale: 0.2 }" :enter="{opacity: 1, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}" class="w-full flex pl-[2%] pr-[2%]">
+                            <Motion :initial="{ opacity: 0, scale: 0.2 }" :enter="{opacity: 1, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}" class="w-full flex pl-[2%] pr-[2%] autofill:shadow-[inset_0_0_0px_1000px_rgb(31,31,35)]">
                                 <p v-if="errorMessage.message && errorMessage.message[0]" class="text-red-500 text-[12px] mt-1 leading-[1.5]">
                                     {{ errorMessage.message[0] }}
                                 </p>
