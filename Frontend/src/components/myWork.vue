@@ -155,7 +155,7 @@
                                     <img src="../assets/images/ShopBridge1.png" alt="ShopBridge" class="hover:scale-110 w-full h-full object-cover">
                                 </div>
                                 <div class="text-white text-[14px] sb5:text-[16px] flex font-light font-poppins justify-center items-center h-[18%]">
-                                    <p class="w-[90%]">A platform that lets you stream and download music with ease.</p>
+                                    <p class="w-[90%]">A platform that lets you shop products and checkout with ease.</p>
                                 </div>
                             </div>
                         </div>
@@ -177,7 +177,8 @@
                             <div class="flex flex-col justify-center">
                                 <span @click="[showWorkDescription(1), activeGallery = images1]" class="text-[28px] font-semibold text-navBar1 cursor-pointer mb-[20px] ">ShopBridge</span> 
                                 <div class="w-[456px] h-[176px] bg-cardBg rounded-[4px] p-[25px] mb-[25px]">
-                                    An eCommerce platform that lets customers browse products, add items to their cart, and checkout securely. It supports various payment options, organized categories, and delivers a smooth and user-friendly shopping experience.                                </div>
+                                    An eCommerce platform that lets customers browse products, add items to their cart, and checkout securely. It supports various payment options, organized categories, and delivers a smooth and user-friendly shopping experience.                                
+                                </div>
                                 <div class="text-[13px] text-navBar1 font-normal">
                                     Laravel | Vue 3 | Tailwind
                                 </div>
