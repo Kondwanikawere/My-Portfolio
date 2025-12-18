@@ -117,7 +117,7 @@ defineProps({
         </div>
         <Transition name="slide-up">
             <div v-if="visible" class="text-[2.5vw] font-robotoMono font-normal text-gray-200 sm:text-[1.8vw]">
-              FULL STACK DEVELOPER, UI/UX DESIGNER, CYBERSECURITY EXPERT
+              FULL STACK DEVELOPER, UI/UX DESIGNER, CYBERSECURITY ENTHUSIAST
             </div>
         </Transition>
       </div>
