@@ -1,5 +1,5 @@
 <script setup>
-    import { ref, onMounted, onUnmounted, reactive, Teleport} from 'vue';
+    import { ref, onMounted, onUnmounted, watch, onBeforeUnmount, reactive, Teleport, nextTick} from 'vue';
     import { useIntersectionObserver } from '@vueuse/core'
 
     const work = ref(null)
@@ -125,6 +125,53 @@
     }
 
     const expand = ref(false);
+ 
+    let savedScrollY = 0
+
+    const closeAllWorkDescriptions = () => {
+        Object.keys(workDescription).forEach(key => {
+            workDescription[key] = false
+        })
+    }
+
+    const handleBack = async () => {
+    const anyOpen = Object.values(workDescription).some(Boolean)
+
+    if (anyOpen) {
+        closeAllWorkDescriptions()
+
+        await nextTick()
+
+        // 🔒 FORCE scroll position back
+        window.scrollTo(0, savedScrollY)
+
+        // neutralize history movement
+        history.replaceState({ modalClosed: true }, '')
+    }
+    }
+
+    onMounted(() => {
+        history.scrollRestoration = 'manual'
+        window.addEventListener('popstate', handleBack)
+    })
+
+    onBeforeUnmount(() => {
+        window.removeEventListener('popstate', handleBack)
+    })
+
+// Save scroll position ONLY when opening modal
+    watch(
+    () => Object.values(workDescription),
+    (values, prev) => {
+        const opened = values.some(Boolean)
+        const wasOpen = prev?.some(Boolean)
+
+        if (opened && !wasOpen) {
+            savedScrollY = window.scrollY   
+            history.pushState({ modal: true }, '')
+        }
+    }
+    )
 
 </script>
 
@@ -197,7 +244,7 @@
                             <div class="w-full fixed top-0 z-102 h-screen bg-black opacity-50" @click="showWorkDescription(1)"></div>
                             <div class="h-screen w-full bg-portfolio fixed top-0 z-103 overflow-hidden lg:w-[700px] lg:h-[95vh] flex flex-col items-center">
                                 <button @click="showWorkDescription(1)" :class="['absolute z-103 top-[1vh] right-[3%] cursor-pointer hidden']">
-                                    <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-[#bbb]"/>
+                                    <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-xcloseModal"/>
                                 </button>
                                 <div :class="['relative h-[50vh] lg:h-[60vh] w-full overflow-hidden']">
                                     <img @click="expand = !expand" :src="images1[currentIndex]" alt="ShopBridge" class=" left-0 w-full h-full object-cover absolute z-102" >
@@ -286,7 +333,7 @@
                             <div class="w-full fixed top-0 z-102 h-screen bg-black opacity-50" @click="showWorkDescription(2)"></div>
                             <div class="h-screen w-full bg-portfolio fixed top-0 z-103 overflow-hidden lg:w-[700px] lg:h-[95vh] flex flex-col items-center">
                                 <button @click="showWorkDescription(2)" :class="['absolute z-103 top-[1vh] right-[3%] cursor-pointer', expand ? 'block' : 'hidden']">
-                                    <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-[#EEEEEE]"/>
+                                    <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-xcloseModal"/>
                                 </button>
                                 <div :class="['relative', expand ? 'h-[100%] w-[80%] sm:w-full' : 'h-[60vh] w-full']">
                                     <img alt="LyricFlow" src="../assets/images/myWorkBg.png" :class="['h-[100%] w-[100%] left-0 absolute z-101', expand ? 'hidden lg:block' : '']">
@@ -375,7 +422,7 @@
                             <div class="w-full fixed top-0 z-102 h-screen bg-black opacity-50" @click="showWorkDescription(3)"></div>
                             <div class="h-screen w-full bg-portfolio fixed top-0 z-103 overflow-hidden lg:w-[700px] lg:h-[95vh] flex flex-col items-center">
                                 <button @click="showWorkDescription(3)" :class="['absolute z-103 top-[1vh] right-[3%] cursor-pointer hidden']">
-                                    <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-[#bbb]"/>
+                                    <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-xcloseModal"/>
                                 </button>
                                 <div :class="['relative h-[50vh] lg:h-[60vh] w-full overflow-hidden']">
                                     <img @click="expand = !expand" :src="images3[currentIndex]" alt="Innsight" class="left-0 w-full h-full object-cover absolute z-102" >
@@ -461,7 +508,7 @@
                             <div class="w-full fixed top-0 z-102 h-screen bg-black opacity-50" @click="showWorkDescription(4)"></div>
                             <div class="h-screen w-full bg-portfolio fixed top-0 z-103 overflow-hidden lg:w-[700px] lg:h-[95vh] flex flex-col items-center">
                                 <button @click="showWorkDescription(4)" :class="['absolute z-103 top-[1vh] right-[3%] cursor-pointer hidden']">
-                                    <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-[#bbb]"/>
+                                    <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-xcloseModal"/>
                                 </button>
                                 <div :class="['relative h-[50vh] lg:h-[60vh] w-full overflow-hidden']">
                                     <img @click="expand = !expand" :src="images4[currentIndex]" alt="CompassionLink" class="left-0 w-full h-full object-cover absolute z-102" >
