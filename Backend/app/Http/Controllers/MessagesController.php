@@ -9,6 +9,9 @@ use Illuminate\Http\Response;
 
 class MessagesController extends Controller
 {
+    public function index(){
+        return response()->json(Message::orderBy('created_at', 'desc')->get());
+    }
     public function store(Request $request): Response
     {
         $request->validate([
@@ -26,4 +29,20 @@ class MessagesController extends Controller
 
         return response()->noContent();
     }
+
+    public function markAsRead($id){
+        $message = Message::findOrFail($id);
+        $message->read = 1;
+        $message->save();
+
+        return response()->json($message);
+    }
+    public function destroy(Message $message)
+        {
+            $message->delete();
+
+            return response()->json([
+                'message' => 'Message deleted successfully'
+            ], 200);
+        }
 }

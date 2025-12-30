@@ -15,6 +15,7 @@ class Message extends Model
         'name',
         'email',
         'message',
+        'read',
     ];
 
     /**
@@ -23,8 +24,6 @@ class Message extends Model
      * @var list<string>
      */
     protected $hidden = [
-        'id',
         'updated_at',
-        'created_at',
     ];
 }

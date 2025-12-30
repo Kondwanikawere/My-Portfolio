@@ -5,6 +5,10 @@ const axiosClient = axios.create({
     baseURL : import.meta.env.VITE_API_BASE_URL,
     withCredentials : true,
     withXSRFToken : true,
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    }
 })
 
 // axiosClient.interceptors.request.use( config =>{
@@ -14,8 +18,11 @@ const axiosClient = axios.create({
 axiosClient.interceptors.response.use( (response) => {
     return response
 }, error => {
-    if(error.response){
-       console.log(error.response)
+    if(error.response && error.response.status == 401){
+        const routeName = error.config?.metadata?.routeName;
+        if (routeName !== 'login') {
+            router.push({name : 'login'})
+        }
     }
     throw error;
 })

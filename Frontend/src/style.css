@@ -23,6 +23,9 @@
   --color-contactInputBg : #1f1f23;
   --color-viewSiteB : #e31b6d;
   --color-xcloseModal: #E53935;
+  --color-textRed: #B90020;
+  --color-transparentColor : rgb (161,161,161,50%);
+  --color-background : #001120;
   --breakpoint-xs: 320px;
   /* sb1 means small breakpoint 1 */
   --breakpoint-sb1: 360px;
