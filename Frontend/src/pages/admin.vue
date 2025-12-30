@@ -13,7 +13,6 @@ const fetchMessages = async () => {
 
     const res = await axiosClient.get('/api/messages')
     messages.value = res.data
-    console.log(messages.value)
 
   } catch (error){
     console.error('Error fetching messages:', error)
@@ -216,7 +215,7 @@ const saveProfile = async () => {
               <td class="px-6 py-4 space-x-2">
                 <!-- Show "Mark as Read" button if unread -->
                 <button
-                  v-if="msg.read === 0"
+                  v-if="msg.read == 0"
                   @click="markAsRead(msg)"
                   class="px-3 py-1 mb-1 text-xs rounded text-white bg-green-600"
                 >
@@ -273,7 +272,7 @@ const saveProfile = async () => {
 
             <!-- Only show "Mark as Read" if unread -->
             <button
-              v-if="msg.read === 0"
+              v-if="msg.read == 0"
               @click="markAsRead(msg)"
               class="flex-1 text-sm py-1 rounded text-white bg-green-600"
             >
