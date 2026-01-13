@@ -83,6 +83,12 @@ defineProps({
   activeSection: String,
 })
 
+const loaded = ref(false)
+
+function onLoad() {
+  loaded.value = true
+}
+
 </script>
 
 <template>
@@ -103,8 +109,14 @@ defineProps({
     <Transition appear enter-active-class="transition ease-out duration-2000"
                   leave-active-class="transition ease-out duration-2000" enter-from-class="opacity-0" 
                   leave-to-class="opacity-0">
-      <div class="fixed ml-[3%] sm:ml-[1.2%] h-[40px] w-[40px] sm:h-[55px] sm:w-[55px] rounded-full mt-[20px] z-100 "  v-if="socialMediaTrue">
-        <img src="../assets/images/heroProfile.png" alt="Pic" class="w-full h-full object-contain rounded-full">
+      <div class="fixed ml-[3%] sm:ml-[1.2%] h-[40px] w-[40px] sm:h-[55px] sm:w-[55px] rounded-full mt-[20px] z-100 bg-gray-300 animate-pulse"  v-if="socialMediaTrue && !loaded">
+      </div>
+    </Transition>
+    <Transition appear enter-active-class="transition ease-out duration-2000"
+                  leave-active-class="transition ease-out duration-2000" enter-from-class="opacity-0" 
+                  leave-to-class="opacity-0">
+      <div  :class="{ 'hidden': !loaded }" class="fixed ml-[3%] sm:ml-[1.2%] h-[40px] w-[40px] sm:h-[55px] sm:w-[55px] rounded-full mt-[20px] z-100"  v-if="socialMediaTrue">
+        <img @load="onLoad" src="../assets/images/heroProfile.jpg" alt="Pic" class="w-full h-full object-contain rounded-full">
       </div>
     </Transition>
 

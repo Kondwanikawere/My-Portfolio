@@ -90,27 +90,27 @@
     })
 
     const images1 = ref([
-        new URL('@/assets/images/ShopBridge1.png', import.meta.url).href,
-        new URL('@/assets/images/ShopBridge2.png', import.meta.url).href,
-        new URL('@/assets/images/ShopBridge3.png', import.meta.url).href,
+        new URL('@/assets/images/ShopBridge1.jpg', import.meta.url).href,
+        new URL('@/assets/images/ShopBridge2.jpg', import.meta.url).href,
+        new URL('@/assets/images/ShopBridge3.jpg', import.meta.url).href,
     ])
 
     const images2 = ref([
-        new URL('@/assets/images/LyricFlow1.png', import.meta.url).href,
-        new URL('@/assets/images/LyricFlow2.png', import.meta.url).href,
-        new URL('@/assets/images/LyricFlow3.png', import.meta.url).href,
+        new URL('@/assets/images/LyricFlow1.webp', import.meta.url).href,
+        new URL('@/assets/images/LyricFlow2.webp', import.meta.url).href,
+        new URL('@/assets/images/LyricFlow3.webp', import.meta.url).href,
     ])
 
     const images3 = ref([
-        new URL('@/assets/images/H1.png', import.meta.url).href,
-        new URL('@/assets/images/H22.png', import.meta.url).href,
-        new URL('@/assets/images/H3.png', import.meta.url).href,
+        new URL('@/assets/images/H1.jpg', import.meta.url).href,
+        new URL('@/assets/images/H22.jpg', import.meta.url).href,
+        new URL('@/assets/images/H3.jpg', import.meta.url).href,
     ])
 
     const images4 = ref([
-        new URL('@/assets/images/CompassionLink2.png', import.meta.url).href,
-        new URL('@/assets/images/CompassionLink3.png', import.meta.url).href,
-        new URL('@/assets/images/CompassionLink4.png', import.meta.url).href,
+        new URL('@/assets/images/CompassionLink2.jpg', import.meta.url).href,
+        new URL('@/assets/images/CompassionLink3.jpg', import.meta.url).href,
+        new URL('@/assets/images/CompassionLink4.jpg', import.meta.url).href,
     ])
 
     const activeGallery = ref(null)
@@ -173,6 +173,13 @@
     }
     )
 
+    
+    const loaded = ref(false)
+
+    function onLoad() {
+      loaded.value = true
+    }
+
 </script>
 
 <template>
@@ -199,7 +206,10 @@
                             </div>
                             <div @click="[showWorkDescription(1), activeGallery = images1]" class="xs:h-[282px] xs:w-[100%] sb1:h-[317px] sb2:h-[344px] sb3:h-[365px] sb4:h-[397px] sb5:h-[425px] sb6:h-[476px] sb7:h-[507px] sb8:h-[529px] sm:w-[512px] md:w-[646px] h-[340px] sm:h-[440px] lg:w-[547px] lg:h-[308px] rounded-[4px] cursor-pointer overflow-hidden bg-cardBg">
                                 <div class="w-[100%] h-[83%] rounded-[4px] overflow-hidden">
-                                    <img src="../assets/images/ShopBridge1.png" alt="ShopBridge" class="hover:scale-110 w-full h-full object-cover">
+                                    <img @load="onLoad" :class="{ 'hidden': !loaded }" src="../assets/images/ShopBridge1.jpg" alt="ShopBridge" class="hover:scale-110 w-full h-full object-cover">
+                                    <div v-if="!loaded" class="hover:scale-110 w-full h-full bg-gray-300 animate-pulse">
+
+                                    </div>
                                 </div>
                                 <div class="text-white text-[14px] sb5:text-[16px] flex font-light font-poppins justify-center items-center h-[18%]">
                                     <p class="w-[90%]">A platform that lets you shop products and checkout with ease.</p>
@@ -233,7 +243,10 @@
                         </Motion>
                         <div class="justify-self-end z-1">
                             <div @click="[showWorkDescription(1), activeGallery = images1]" class="w-[512px] sm:w-[646px] h-[340px] sm:h-[440px] lg:w-[547px] lg:h-[308px] rounded-[4px] cursor-pointer overflow-hidden">
-                                <img src="../assets/images/ShopBridge1.png" alt="ShopBridge" class="w-[100%] h-[100%] rounded-[4px] hover:scale-110 object-cover">
+                                <img @load="onLoad" :class="{ 'hidden': !loaded }" src="../assets/images/ShopBridge1.jpg" alt="ShopBridge" class="w-[100%] h-[100%] rounded-[4px] hover:scale-110 object-cover">
+                                <div v-if="!loaded" class="w-[100%] h-[100%] rounded-[4px] hover:scale-110 bg-gray-300 animate-pulse">
+
+                                </div>
                             </div>
                         </div>
                     </div>                    
@@ -247,7 +260,10 @@
                                     <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-xcloseModal"/>
                                 </button>
                                 <div :class="['relative h-[50vh] lg:h-[60vh] w-full overflow-hidden']">
-                                    <img @click="expand = !expand" :src="images1[currentIndex]" alt="ShopBridge" class=" left-0 w-full h-full object-cover absolute z-102" >
+                                    <img @click="expand = !expand" @load="onLoad" :class="{ 'hidden': !loaded }" :src="images1[currentIndex]" alt="ShopBridge" class=" left-0 w-full h-full object-cover absolute z-102" >
+                                    <div v-if="!loaded" class="left-0 w-full h-full absolute z-102 bg-gray-300 animate-pulse">
+
+                                    </div>
                                 </div>
                                 <div class="absolute w-full h-[50vh] lg:h-[60vh] top-0">
                                     <button @click="prevImage" :class="['absolute left-0 w-[10%] h-[37px] bg-black/20 z-103 flex justify-center items-center cursor-pointer bottom-0']">
@@ -287,7 +303,10 @@
                             </div>
                             <div @click="[showWorkDescription(2), activeGallery = images2]" class="xs:h-[282px] xs:w-[100%] sb1:h-[317px] sb2:h-[344px] sb3:h-[365px] sb4:h-[397px] sb5:h-[425px] sb6:h-[476px] sb7:h-[507px] sb8:h-[529px] sm:w-[512px] md:w-[646px] sm:h-[440px] rounded-[4px] h-[340px] cursor-pointer overflow-hidden bg-cardBg">
                                 <div class="w-[100%] h-[83%] rounded-[4px] overflow-hidden">
-                                    <img src="../assets/images/Sign In.png" alt="LyricFlow" class="hover:scale-110 ">
+                                    <img @load="onLoad" :class="{ 'hidden': !loaded }" src="../assets/images/Sign In.jpg" alt="LyricFlow" class="hover:scale-110 ">
+                                    <div v-if="!loaded" class="hover:scale-110 w-full h-full bg-gray-300 animate-pulse">
+
+                                    </div>
                                 </div>                                
                                 <div class="text-white text-[14px] sb5:text-[16px] flex font-light font-poppins justify-center items-center h-[18%]">
                                     <p class="w-[90%]">A platform that lets you stream and download music with ease.</p>
@@ -310,7 +329,10 @@
                     <div v-if="card2Visible" class="w-full mb-[25px] grid grid-cols-2">
                         <div class="justify-self-start z-1">
                             <div @click="[showWorkDescription(2), activeGallery = images2]" class="w-[512px] sm:w-[646px] h-[340px] sm:h-[440px] lg:w-[547px] lg:h-[308px] rounded-[4px] cursor-pointer overflow-hidden">
-                                <img src="../assets/images/Sign In.png" alt="LyricFlow" class="rounded-[4px] hover:scale-110 object-cover">
+                                <img @load="onLoad" :class="{ 'hidden': !loaded }" src="../assets/images/Sign In.jpg" alt="LyricFlow" class="rounded-[4px] hover:scale-110 object-cover">
+                                <div v-if="!loaded" class="hover:scale-110 w-full h-full bg-gray-300 animate-pulse">
+
+                                </div>                            
                             </div>
                         </div>
                         <Motion v-if="card2Visible" class="z-2" :initial="{ opacity: 0, x: -200, scale: 0.2 }" :enter="{opacity: 1, x: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}">
@@ -336,8 +358,11 @@
                                     <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-xcloseModal"/>
                                 </button>
                                 <div :class="['relative', expand ? 'h-[100%] w-[80%] sm:w-full' : 'h-[60vh] w-full']">
-                                    <img alt="LyricFlow" src="../assets/images/myWorkBg.png" :class="['h-[100%] w-[100%] left-0 absolute z-101', expand ? 'hidden lg:block' : '']">
-                                    <img @click="expand = !expand" :src="images2[currentIndex]" alt="LyricFlow" class="h-[100%] w-[100%] object-contain overflow-hidden left-0 absolute z-102" >
+                                    <img alt="LyricFlow" src="../assets/images/myWorkBg.jpg" :class="['h-[100%] w-[100%] left-0 absolute z-101', expand ? 'hidden lg:block' : '', { hidden: !loaded }]">
+                                    <img @load="onLoad" :class="{ 'hidden': !loaded }" @click="expand = !expand" :src="images2[currentIndex]" alt="LyricFlow" class="h-[100%] w-[100%] object-contain overflow-hidden left-0 absolute z-102" >
+                                    <div v-if="!loaded" class="h-[100%] w-[100%] left-0 absolute z-102 bg-gray-300 animate-pulse">
+
+                                    </div>   
                                 </div>
                                 <div class="absolute w-full h-[60vh] top-0">
                                     <button @click="prevImage" :class="['absolute left-0 w-[10%] h-[37px] bg-black/20 z-103 flex justify-center items-center cursor-pointer', expand ? 'top-[47vh]' : 'bottom-0']">
@@ -376,7 +401,9 @@
                             </div>
                             <div  @click="[showWorkDescription(3), activeGallery = images3]" class="xs:h-[282px] xs:w-[100%] sb1:h-[317px] sb2:h-[344px] sb3:h-[365px] sb4:h-[397px] sb5:h-[425px] sb6:h-[476px] sb7:h-[507px] sb8:h-[529px] sm:w-[512px] md:w-[646px] sm:h-[440px] rounded-[4px] h-[340px] cursor-pointer overflow-hidden bg-cardBg">
                                 <div class="w-[100%] h-[83%] rounded-[4px] overflow-hidden">
-                                    <img src="../assets/images/H4.png" alt="InnSight" class="hover:scale-110">
+                                    <img @load="onLoad" :class="{ 'hidden': !loaded }" src="../assets/images/H4.jpg" alt="InnSight" class="hover:scale-110">
+                                    <div v-if="!loaded" class="hover:scale-110 w-full h-full bg-gray-300 animate-pulse">
+                                    </div>
                                 </div>
                                 <div class="text-white text-[14px] sb5:text-[16px] flex font-light font-poppins justify-center items-center h-[18%]">
                                 <p class="w-[90%]">A System that simplifies Hotel Management Operations.</p>
@@ -410,7 +437,9 @@
                         </Motion>
                         <div class="justify-self-end z-1">
                             <div @click="[showWorkDescription(3), activeGallery = images1]" class="w-[512px] sm:w-[646px] h-[340px] sm:h-[440px] lg:w-[547px] lg:h-[308px] rounded-[4px] cursor-pointer overflow-hidden">
-                                <img src="../assets/images/H4.png" alt="Innsight" class=" rounded-[4px] hover:scale-110 ">
+                                <img @load="onLoad" :class="{ 'hidden': !loaded }" src="../assets/images/H4.jpg" alt="Innsight" class=" rounded-[4px] hover:scale-110 ">
+                                <div v-if="!loaded" class="w-[100%] h-[100%] rounded-[4px] hover:scale-110 bg-gray-300 animate-pulse">
+                                </div>
                             </div>
                         </div>
                     </div>                    
@@ -425,7 +454,10 @@
                                     <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-xcloseModal"/>
                                 </button>
                                 <div :class="['relative h-[50vh] lg:h-[60vh] w-full overflow-hidden']">
-                                    <img @click="expand = !expand" :src="images3[currentIndex]" alt="Innsight" class="left-0 w-full h-full object-cover absolute z-102" >
+                                    <img @load="onLoad" :class="{ 'hidden': !loaded }" @click="expand = !expand" :src="images3[currentIndex]" alt="Innsight" class="left-0 w-full h-full object-cover absolute z-102" >
+                                    <div v-if="!loaded" class="left-0 w-full h-full absolute z-102 bg-gray-300 animate-pulse">
+
+                                    </div>                                
                                 </div>
                                 <div class="absolute w-full h-[50vh] lg:h-[60vh] top-0">
                                     <button @click="prevImage" :class="['absolute left-0 w-[10%] h-[37px] bg-black/20 z-103 flex justify-center items-center cursor-pointer bottom-0']">
@@ -462,7 +494,10 @@
                             </div>
                             <div @click="[showWorkDescription(4), activeGallery = images4]" class="xs:h-[282px] xs:w-[100%] sb1:h-[317px] sb2:h-[344px] sb3:h-[365px] sb4:h-[397px] sb5:h-[425px] sb6:h-[476px] sb7:h-[507px] sb8:h-[529px] sm:w-[512px] md:w-[646px] sm:h-[440px] rounded-[4px] h-[340px] cursor-pointer overflow-hidden bg-cardBg">
                                 <div class="w-[100%] h-[83%] rounded-[4px] overflow-hidden">
-                                    <img src="../assets/images/CompassionLink.jpg" alt="CompassionLink" class="hover:scale-110 ">
+                                    <img @load="onLoad" :class="{ 'hidden': !loaded }" src="../assets/images/CompassionLink.jpg" alt="CompassionLink" class="hover:scale-110 ">
+                                    <div v-if="!loaded" class="hover:scale-110 w-full h-full bg-gray-300 animate-pulse">
+
+                                    </div>                                
                                 </div>                                
                                 <div class="text-white text-[14px] sb5:text-[16px] flex font-light font-poppins justify-center items-center h-[18%]">
                                 <p class="w-[90%]">A platform where well-wishers can donate to support patients.</p>
@@ -485,7 +520,9 @@
                     <div v-if="card4Visible" class="w-full mb-[25px] grid grid-cols-2">
                         <div class="justify-self-start z-1">
                             <div @click="[showWorkDescription(4), activeGallery = images4]" class="w-[512px] sm:w-[646px] h-[340px] sm:h-[440px] lg:w-[547px] lg:h-[308px] rounded-[4px] cursor-pointer overflow-hidden">
-                                <img src="../assets/images/CompassionLink1.jpg" alt="CompassionLink1" class="rounded-[4px] hover:scale-110 object-cover">
+                                <img @load="onLoad" :class="{ 'hidden': !loaded }" src="../assets/images/CompassionLink1.jpg" alt="CompassionLink1" class="rounded-[4px] hover:scale-110 object-cover">
+                                <div v-if="!loaded" class="w-[100%] h-[100%] rounded-[4px] hover:scale-110 bg-gray-300 animate-pulse">
+                                </div>                            
                             </div>
                         </div>
                         <Motion v-if="card4Visible" class="z-2" :initial="{ opacity: 0, x: -200, scale: 0.2 }" :enter="{opacity: 1, x: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}">
@@ -511,7 +548,10 @@
                                     <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-xcloseModal"/>
                                 </button>
                                 <div :class="['relative h-[50vh] lg:h-[60vh] w-full overflow-hidden']">
-                                    <img @click="expand = !expand" :src="images4[currentIndex]" alt="CompassionLink" class="left-0 w-full h-full object-cover absolute z-102" >
+                                    <img @load="onLoad" :class="{ 'hidden': !loaded }" @click="expand = !expand" :src="images4[currentIndex]" alt="CompassionLink" class="left-0 w-full h-full object-cover absolute z-102" >
+                                    <div v-if="!loaded" class="left-0 w-full h-full absolute z-102 bg-gray-300 animate-pulse">
+
+                                    </div>
                                 </div>
                                 <div class="absolute w-full h-[50vh] lg:h-[60vh] top-0">
                                     <button @click="prevImage" :class="['absolute left-0 w-[10%] h-[37px] bg-black/20 z-103 flex justify-center items-center cursor-pointer bottom-0']">

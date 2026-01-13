@@ -141,6 +141,11 @@
         portfolio
     })
 
+    const loaded = ref(false)
+
+    function onLoad() {
+      loaded.value = true
+    }
 </script>
 
 <template>
@@ -239,13 +244,18 @@
         <Motion v-if="description5" :initial="{ opacity: 0, x: -200, scale: 0.2 }" :enter="{opacity: 1, x: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}" 
                 class="w-full flex justify-center text-[#00ADB5] md:w-[35%] md:hidden">
           <div class="relative  h-[313px] xs:w-[250px] rounded-[4px] overflow-visible border-[3px] border-white">
-            <img src="../assets/images/profile.jpg" alt="Profile" class="absolute w-[250px] h-[313px] object-contain rounded-[4px] -translate-x-[7%] -translate-y-[7%]">
+            <img @load="onLoad" :class="{ 'hidden': !loaded }" src="../assets/images/profile.jpg" alt="Profile" class="absolute w-[250px] h-[313px] object-contain rounded-[4px] -translate-x-[7%] -translate-y-[7%]">
+            <div v-if="!loaded" class="absolute w-[250px] h-[313px] rounded-[4px] bg-gray-300 animate-pulse"> 
+            </div>          
           </div>
         </Motion>
         <Motion v-if="descriptionVisible" :initial="{ opacity: 0, x: -200, scale: 0.2 }" :enter="{opacity: 1, x: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}" 
                 class="justify-center text-[#00ADB5] md:w-[40%] lg:w-[35%] hidden md:flex ">
           <div class="relative h-[313px] xs:w-[250px] rounded-[4px] overflow-visible border-[3px] border-white">
-            <img src="../assets/images/profile.jpg" alt="Profile" class="absolute w-[250px] h-[313px] object-contain rounded-[4px] -translate-x-[7%] -translate-y-[7%]">
+            <img @load="onLoad" :class="{ 'hidden': !loaded }" src="../assets/images/profile.jpg" alt="Profile" class="absolute w-[250px] h-[313px] object-contain rounded-[4px] -translate-x-[7%] -translate-y-[7%]">
+            <div v-if="!loaded"  class="absolute w-[250px] h-[313px] rounded-[4px] bg-gray-300 animate-pulse">
+              
+            </div>          
           </div>
         </Motion>
       </div>
