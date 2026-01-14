@@ -280,7 +280,7 @@
                                         An eCommerce platform designed to deliver a streamlined shopping experience. Customers can easily explore products, manage their carts, and complete secure checkouts, supported by structured categories, intuitive navigation, and dependable payment options.                                    
                                     </p>
                                     <div class="flex justify-between w-full pr-[5%]">
-                                        <a target="_blank" rel="noopener noreferrer" href="https://ecommerce.kondwanikawere.com" class="w-[110px] h-[42px] border-2 border-viewSiteB hover:bg-viewSiteB text-[14px] flex justify-center items-center">VIEW SITE</a>
+                                        <a target="_blank" rel="noopener noreferrer" href="https://ecommerce.livesite.click" class="w-[110px] h-[42px] border-2 border-viewSiteB hover:bg-viewSiteB text-[14px] flex justify-center items-center">VIEW SITE</a>
                                         <button @click="showWorkDescription(1)" class="cursor-pointer">
                                             <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-[#bbb]"/>
                                         </button>
