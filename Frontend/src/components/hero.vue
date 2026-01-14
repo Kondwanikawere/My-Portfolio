@@ -122,13 +122,13 @@ function onLoad() {
 
     <div class="h-screen flex items-center justify-center">
       <div class="text-center p-8 bg-transparent rounded-lg">
-        <div class="text-[8vw]/[1em] font-poppins font-extrabold text-white mb-4 w-[100%] flex justify-center">
+        <div class="text-[6vw] md:text-[5vw] lg:text-[3.5vw] font-poppins font-extrabold text-white mb-4 w-[100%] flex justify-center">
           <TransitionGroup name="bounce">
             <pre v-for="(char, index) in displayedText" :key="index">{{ char }}</pre>
           </TransitionGroup>
         </div>
         <Transition name="slide-up">
-            <div v-if="visible" class="text-[2.5vw] font-robotoMono font-normal text-gray-200 sm:text-[1.8vw]">
+            <div v-if="visible" class="text-[3vw] md:text-[2.5vw] lg:text-[1.75vw] font-robotoMono font-normal text-gray-200 md:pl-[5%] md:pr-[5%]">
               FULL STACK DEVELOPER, UI/UX DESIGNER, CYBERSECURITY ENTHUSIAST
             </div>
         </Transition>

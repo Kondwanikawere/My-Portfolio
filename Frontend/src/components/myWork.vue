@@ -192,7 +192,7 @@
             </div>
 
             <Motion v-if="card1Visible" :initial="{ opacity: 0, x: -200, scale: 0.2 }" :enter="{opacity: 1, x: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}"
-                class="w-full flex items-center space-x-[4%] text-[20px] sb4:text-[25px] sm:text-[25px] lg:text-[38px] text-white font-bold mb-[30px]">
+                class="w-full flex items-center space-x-[4%] text-[25px] sb2:text-[28px] lg:text-[38px] text-white font-bold mb-[30px]">
                 <div>Things I've Worked on, Some of Them </div>
             </Motion>
 
