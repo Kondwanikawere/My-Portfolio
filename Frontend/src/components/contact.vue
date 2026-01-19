@@ -156,7 +156,7 @@
                 <button @click="$emit('scroll-to', 'hero')" class="cursor-pointer h-[50px] w-[45px] -translate-y-[25px] bg-[#e31b6d] flex justify-center items-center mb-[20px]">
                     <img src="../assets/icons/upChevron.png" class="w-[25px] h-[25px]">
                 </button>
-                <div class="flex w-full justify-center space-x-[30px] mb-[35px]">
+                <div class="flex w-full justify-center space-x-[20px] sb3:space-x-[30px] mb-[35px]">
                     <a href="https://wa.me/265882816362" target="_blank" rel="noopener noreferrer">
                         <div class="w-[50px] h-[50px] bg-cardBg flex justify-center items-center cursor-pointer">
                             <font-awesome-icon :icon="['fab', 'whatsapp']" class="text-white text-[25px] transition duration-300 hover:drop-shadow-[0_0_12px_#00c1a1]" />
@@ -175,6 +175,11 @@
                     <a href="https://www.linkedin.com/in/kondwani-kawere-86a65729b" target="_blank" rel="noopener noreferrer">
                         <div class="w-[50px] h-[50px] bg-cardBg flex justify-center items-center cursor-pointer">
                             <font-awesome-icon :icon="['fab', 'linkedin']" class="text-white text-[25px] transition duration-300 hover:drop-shadow-[0_0_12px_#00c1a1]" />
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com/kondwani_kawere" target="_blank" rel="noopener noreferrer">
+                        <div class="w-[50px] h-[50px] bg-cardBg flex justify-center items-center cursor-pointer">
+                            <font-awesome-icon :icon="['fab', 'instagram']" class="text-white text-[25px] transition duration-300 hover:drop-shadow-[0_0_12px_#00c1a1]" />
                         </div>
                     </a>
                 </div>
