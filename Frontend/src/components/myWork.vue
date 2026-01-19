@@ -253,7 +253,7 @@
                 </div>
                 <Teleport to="body">
                     <Transition name="workDescription" appear>
-                        <div v-if="workDescription[1]" class="w-full fixed left-0 top-0 z-102 h-screen flex justify-center">
+                        <div v-if="workDescription[1]" class="w-full fixed left-0 right-0 top-0 z-102 h-screen flex justify-center">
                             <div class="w-full fixed top-0 z-102 h-screen bg-black opacity-50" @click="showWorkDescription(1)"></div>
                             <div class="h-screen w-full bg-portfolio fixed top-0 z-103 overflow-hidden lg:w-[700px] lg:h-[95vh] flex flex-col items-center">
                                 <button @click="showWorkDescription(1)" :class="['absolute z-103 top-[1vh] right-[3%] cursor-pointer hidden']">
@@ -351,7 +351,7 @@
 
                 <Teleport to="body">
                     <Transition name="workDescription" appear>
-                        <div v-if="workDescription[2]" class="w-full fixed left-0 top-0 z-102 h-screen flex justify-center">
+                        <div v-if="workDescription[2]" class="w-full fixed right-0 left-0 top-0 z-102 h-screen flex justify-center">
                             <div class="w-full fixed top-0 z-102 h-screen bg-black opacity-50" @click="showWorkDescription(2)"></div>
                             <div class="h-screen w-full bg-portfolio fixed top-0 z-103 overflow-hidden lg:w-[700px] lg:h-[95vh] flex flex-col items-center">
                                 <button @click="showWorkDescription(2)" :class="['absolute z-103 top-[1vh] right-[3%] cursor-pointer', expand ? 'block' : 'hidden']">
@@ -447,7 +447,7 @@
 
                 <Teleport to="body">
                     <Transition name="workDescription" appear>
-                        <div v-if="workDescription[3]" class="w-full fixed left-0 top-0 z-102 h-screen flex justify-center">
+                        <div v-if="workDescription[3]" class="w-full fixed right-0 left-0 top-0 z-102 h-screen flex justify-center">
                             <div class="w-full fixed top-0 z-102 h-screen bg-black opacity-50" @click="showWorkDescription(3)"></div>
                             <div class="h-screen w-full bg-portfolio fixed top-0 z-103 overflow-hidden lg:w-[700px] lg:h-[95vh] flex flex-col items-center">
                                 <button @click="showWorkDescription(3)" :class="['absolute z-103 top-[1vh] right-[3%] cursor-pointer hidden']">
@@ -541,7 +541,7 @@
 
                 <Teleport to="body">
                     <Transition name="workDescription" appear>
-                        <div v-if="workDescription[4]" class="w-full fixed left-0 top-0 z-102 h-screen flex justify-center">
+                        <div v-if="workDescription[4]" class="w-full fixed left-0 right-0 top-0 z-102 h-screen flex justify-center">
                             <div class="w-full fixed top-0 z-102 h-screen bg-black opacity-50" @click="showWorkDescription(4)"></div>
                             <div class="h-screen w-full bg-portfolio fixed top-0 z-103 overflow-hidden lg:w-[700px] lg:h-[95vh] flex flex-col items-center">
                                 <button @click="showWorkDescription(4)" :class="['absolute z-103 top-[1vh] right-[3%] cursor-pointer hidden']">

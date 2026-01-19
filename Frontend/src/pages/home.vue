@@ -169,13 +169,13 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div v-show="blur" class="w-full top-0 fixed h-[80px] bg-[rgba(255,255,255,0.01)] backdrop-blur-sm z-97" id="navbar">
+  <div v-show="blur" class="w-full top-0 fixed right-0 left-0 h-[80px] bg-[rgba(255,255,255,0.01)] backdrop-blur-sm z-97" id="navbar">
   </div>
   <div :class="['fixed top-0 left-0 h-1 z-101 transition-[width] duration-300 ease-in-out', scrollProgress < 50 ? 'bg-navBar1' : scrollProgress < 90 ? 'bg-navBar1' : scrollProgress < 95 ? 'bg-navBar1' : 'bg-navBar1']" :style="{ width: scrollProgress + '%' }"></div>
   <sideBar :active-section="activeSection" @scroll-to="scrollToSection"/>
-  <hero :activeSection="activeSection" @scroll-to="scrollToSection"/>
-  <mySelf ref="portfolio" />
-  <myWork ref="work"/>
-  <contact ref="contacts" @scroll-to="scrollToSection" />
+  <hero class="w-full" :activeSection="activeSection" @scroll-to="scrollToSection"/>
+  <mySelf class="w-full" ref="portfolio" />
+  <myWork class="w-full" ref="work"/>
+  <contact class="w-full" ref="contacts" @scroll-to="scrollToSection" />
 </template>
 
