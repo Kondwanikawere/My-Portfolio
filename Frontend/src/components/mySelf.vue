@@ -1,5 +1,5 @@
 <script setup>
-    import { ref, onMounted, onUnmounted } from 'vue';
+    import { ref, onMounted, onUnmounted, reactive, Teleport } from 'vue';
     import { useIntersectionObserver } from '@vueuse/core'
 
     const portfolio = ref(null)
@@ -146,6 +146,32 @@
     function onLoad() {
       loaded.value = true
     }
+
+    const workDescription = reactive({
+        1 : false,
+    })
+    function showWorkDescription(No){
+        workDescription[No] = !workDescription[No]
+    }
+    const images1 = ref([
+        new URL('@/assets/images/ShopBridge1.jpg', import.meta.url).href,
+        new URL('@/assets/images/ShopBridge2.jpg', import.meta.url).href,
+        new URL('@/assets/images/ShopBridge3.jpg', import.meta.url).href,
+    ])
+
+    const activeGallery = ref(null)
+    const currentIndex = ref(0)
+
+    const nextImage = () => {
+    currentIndex.value = (currentIndex.value + 1) % activeGallery.value.length
+    }
+
+    const prevImage = () => {
+    currentIndex.value = (currentIndex.value - 1 + activeGallery.value.length) % activeGallery.value.length
+    }
+
+    const expand = ref(false);
+ 
 </script>
 
 <template>
@@ -187,7 +213,7 @@
           </Motion>
 
           <Motion v-if="description4" :initial="{ opacity: 0, x: 200, scale: 0.2 }" :enter="{opacity: 1, x: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}" 
-                  class="w-full flex flex-col space-x-[4%] font-poppins text-[#00ADB5] leading-6 mb-[70px]">
+                  class="w-full flex flex-col space-x-[4%] font-poppins text-[#00ADB5] leading-6 mb-[20px]">
             <div class="mb-[15px]">
               Over the time I've specialized in many technologies, some of them are...
             </div>
@@ -238,6 +264,66 @@
                 </li>
               </ol>
             </div>
+          </Motion>
+
+          <Motion v-if="description4" :initial="{ opacity: 0, x: 200, scale: 0.2 }" :enter="{opacity: 1, x: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}" 
+                  class="w-full flex flex-col space-x-[4%] font-poppins text-[#00ADB5] leading-6 mb-[70px]">
+            <div class="mb-[15px]">
+              Other specialized services:
+            </div>
+            <div class="text-white flex text-[12px]">
+              <ol class="w-[50%]">
+                <li class="flex space-x-[8%] items-center mb-[10px]">
+                  <font-awesome-icon :icon="['fas', 'caret-right']"  class="text-[#00adb5]" />
+                  <div class="flex justify-between w-full pr-[5%]">
+                      <p @click="[showWorkDescription(1), activeGallery = images1]" class="w-[200px] h-[42px] border-2 border-viewSiteB hover:bg-viewSiteB cursor-pointer bg-viewSiteB text-[14px] flex justify-center items-center">Bagisto Development</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <Teleport to="body">
+                <Transition name="workDescription" appear>
+                    <div v-if="workDescription[1]" class="w-full fixed left-0 right-0 top-0 z-102 h-screen flex justify-center">
+                        <div class="w-full fixed top-0 z-102 h-screen bg-black opacity-50" @click="showWorkDescription(1)"></div>
+                        <div class="h-screen w-full bg-portfolio fixed top-0 z-103 overflow-hidden lg:w-[700px] lg:h-[95vh] flex flex-col items-center">
+                            <button @click="showWorkDescription(1)" :class="['absolute z-103 top-[1vh] right-[3%] cursor-pointer hidden']">
+                                <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-xcloseModal"/>
+                            </button>
+                            <div :class="['relative h-[50vh] lg:h-[60vh] w-full overflow-hidden']">
+                                <img @click="expand = !expand" @load="onLoad" :class="{ 'hidden': !loaded }" :src="images1[currentIndex]" alt="ShopBridge" class=" left-0 w-full h-full object-cover absolute z-102" >
+                                <div v-if="!loaded" class="left-0 w-full h-full absolute z-102 bg-gray-300 animate-pulse">
+
+                                </div>
+                            </div>
+                            <div class="absolute w-full h-[50vh] lg:h-[60vh] top-0 ">
+                                <button @click="prevImage" :class="['absolute left-0 w-[10%] h-[37px] bg-black/20 z-103 flex justify-center items-center cursor-pointer bottom-0']">
+                                    <font-awesome-icon :icon="['fas', 'chevron-left']" class="text-white text-[16px]" />
+                                </button>
+                                <button @click="nextImage" :class="['absolute right-0 w-[10%] h-[37px] bg-black/20 z-103 flex justify-center items-center cursor-pointer bottom-0']">
+                                    <font-awesome-icon :icon="['fas', 'chevron-right']" class="text-white text-[16px]" />
+                                </button>
+                              </div>
+                            <div :class="['font-poppins font-semibold text-white pt-[15px] pr-[10px] pl-[15px]']" >
+                                <div class="flex flex-col items-center">
+                                    <p class="text-[26px] text-navBar1">Bagisto Development</p>
+                                    <p class="text-[10px] font-[300px] text-[#959595] mb-[15px]">AN OPEN SOURCE ECOMMERCE PLATFORM</p>
+                                </div>
+                                <p class="text-[14px] font-[100px] text-[#F5F5F5] leading-5 mb-[40px]">
+                                  I provide comprehensive eCommerce solutions using 
+                                  <a href="https://bagisto.com" target="_blank" class="text-blue-500 hover:underline">Bagisto</a>
+                                  , including store development, custom module and plugin development, seamless API integrations for payments, shipping, and ERP systems, as well as performance optimization and security enhancements to ensure your platform is fast, reliable, and secure.
+                                </p>
+                                <div class="flex justify-between w-full pr-[5%]">
+                                    <a target="_blank" rel="noopener noreferrer" href="https://ecommerce.livesite.click" class="w-[110px] h-[35px] border-2 border-viewSiteB hover:bg-viewSiteB text-[14px] flex justify-center items-center">VIEW SITE</a>
+                                    <button @click="showWorkDescription(1)" class="cursor-pointer">
+                                        <font-awesome-icon :icon="['fa', 'xmark']" class="text-[26px] text-[#bbb]"/>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </Transition>
+            </Teleport>
           </Motion>
         </div>
 
