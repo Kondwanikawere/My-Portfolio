@@ -188,7 +188,7 @@
           <Motion v-if="descriptionVisible" :initial="{ opacity: 0, x: 200, scale: 0.2 }" :enter="{opacity: 1, x: 0, scale: 1, transition: { type: 'spring', stiffness: 120, damping: 20 }}" 
                   class="w-full flex items-center space-x-[4%] font-poppins text-[#00ADB5] leading-6 mb-[15px]">
             <div>
-              Hi! I'm a Full Stack Web Developer and Cybersecurity Expert who builds secure, fast and SEO-optimized websites and applications that help businesses grow and stand out online. I leverage modern frameworks, scalable infrastructure, and efficient workflows to deliver solutions that are both high-performing and future-ready. My process combines technical precision with creative design, ensuring clean, user-friendly interfaces that work seamlessly across all devices — all while implementing advanced, industry-leading cybersecurity measures.
+              Hi! I'm a Full Stack Web Developer and Cybersecurity Enthusiast who builds secure, fast and SEO-optimized websites and applications that help businesses grow and stand out online. I leverage modern frameworks, scalable infrastructure, and efficient workflows to deliver solutions that are both high-performing and future-ready. My process combines technical precision with creative design, ensuring clean, user-friendly interfaces that work seamlessly across all devices — all while implementing advanced, industry-leading cybersecurity measures.
             </div>
           </Motion>
 
